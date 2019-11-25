@@ -17,8 +17,14 @@ Rails 5.2.3
     - コンテンツの一覧を表示できる
     - 画像、テキストが投稿できる
     - 本人のみコンテンツの削除、編集ができる
+    - adminユーザーのみ全ての投稿を編集可能
   - お気に入り機能
     - 他のユーザーの投稿をお気に入り登録できる
+
+
+- メニュー(food, side_menu, drink, sake)アップデート機能
+ - adminユーザーのみメニューを新規登録、アップデートできる。
+   - グランドメニューはseedで設定
 
 # カタログ設計
 https://docs.google.com/spreadsheets/d/18qd-0vUnFeM5WgNzt2b_GqC_XZb-4lGKGsk33CJS8zM/edit?userstoinvite=gum5588%40gmail.com&ts=5ddb6148&actionButton=1#gid=1973705985
@@ -35,23 +41,46 @@ https://docs.google.com/spreadsheets/d/18qd-0vUnFeM5WgNzt2b_GqC_XZb-4lGKGsk33CJS
 https://docs.google.com/spreadsheets/d/18qd-0vUnFeM5WgNzt2b_GqC_XZb-4lGKGsk33CJS8zM/edit?userstoinvite=gum5588%40gmail.com&ts=5ddb6148&actionButton=1#gid=1170703884
 # 使用予定Gem
 - ログイン機能
-  - devise
+ - devise
+
+
 - 画像編集機能
   - carrierwave
   - mini_magic
+  - S3
+
+
 - CSSフレームワーク
   - bulma-rails
+
+
 - デバッグ
   - better_errors
   - binding_of_caller
   - pry-rails
+
+
 - テスト
   - rspec-rails
   - spring-commands-rspec
   - factory_bot_rails
   - capybara
   - selenium-webdriver
+
+
 - 辞書機能
   - i18n
 
+
+
   # *AWSにてアップロード
+- AWS用Gem
+  - fog aws
+  - dotenv-rails
+  - unicorn
+  - mini_racer
+  - capistrano, 3.6.0
+  - capistrano-bundler
+  - capistrano-rails
+  - capistrano-rbenv
+  - capistrano3-unicorn
