@@ -1,0 +1,25 @@
+<%= form_with(model: @drink, local: true) do |form| %>
+  <% if @drink.errors.any? %>
+   <div id = "error_explanation">
+     <h2><%= @drink.errors.count %>件のエラーがあります。</h2>
+     <ul>
+
+      <% @drink.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="drink_name">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+  <div class="drink_price">
+    <%= form.label :price %>
+    <%= form.text_field :price %>
+  </div>
+  <%= form.submit %>
+<% end %>
+
+<%= link_to "ドリンク一覧画面に戻る", drinks_path %>

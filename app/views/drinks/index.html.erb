@@ -1,0 +1,27 @@
+<h1>ドリンク一覧</h1>
+<p><%= notice %></p>
+
+<table>
+  <tr>
+    <th>ドリンク名</th>
+    <th>値段</th>
+  </tr>
+
+<% @drinks.each do |drink| %>
+  <tr>
+    <td><%= drink.name %></td>
+    <td><%= drink.price %></td>
+
+    <td><%= link_to 'ドリンク詳細', drink_path(drink.id) %></td>
+    <td><%= link_to "ドリンクを編集する", edit_drink_path(drink.id), data: { confirm: '本当に編集していいですか？' } %></td>
+    <td><%= link_to 'ドリンクを削除する', drink_path(drink.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>
+
+
+  </tr>
+<% end %>
+
+</table>
+
+<br>
+
+<%= link_to '新しくドリンクを登録する', new_drink_path %>
