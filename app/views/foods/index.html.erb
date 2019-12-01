@@ -4,20 +4,24 @@
 <table>
   <tr>
     <th>焼き鳥</th>
-    <th>写真</th>
     <th>値段</th>
     <th>ひとこと</th>
+    <th>写真</th>
 
   </tr>
 
 <% @foods.each do |food| %>
   <tr>
     <td><%= food.name %></td>
-    <td><%= food.picture %></td>
+
     <td><%= food.price %></td>
     <td><%= food.comment %></td>
-
-    <td><%= link_to '焼き鳥詳細', food_path(food.id) %></td>
+    <td><% if food.picture && food.picture.url %>
+          <%= link_to '焼き鳥詳細', food_path(food.id) %>
+        <% else %>
+          <%= "" =%>
+        <% end %>
+    </td>
     <td><%= link_to '焼き鳥を編集する', edit_food_path(food.id), data: { confirm: '本当に編集していいですか？' } %></td>
     <td><%= link_to '焼き鳥を削除する', food_path(food.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>
 

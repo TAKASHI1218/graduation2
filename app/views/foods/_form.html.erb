@@ -17,8 +17,11 @@
     <%= form.text_field :name %>
   </div>
   <div class="food_picture">
-    <%= form.label : %>
+    <%= form.label :picture%>
     <%= form.file_field :picture %>
+    <% if @food.picture && @food.picture.url %>
+    <%= form.hidden_field :image_cache %>
+    <% end %>
   </div>
   <div class="food_price">
     <%= form.label :price %>

@@ -1,6 +1,9 @@
 <h1>焼き鳥詳細画面</h1>
 <p>焼き鳥: <%= @food.name %></p>
-<p>写真: <%= @food.picture %></p>
+<p>
+  <strong>写真: </strong>
+  <%= image_tag @food.picture.url %>
+</p>
 <p>値段: <%= @food.price %></p>
 <p>一言: <%= @food.comment %></p>
 
