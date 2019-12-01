@@ -10,7 +10,14 @@
   </head>
   <header>
     <h> やきとり　</h>
-    </header>
+      <ul>
+        <%= link_to "トップページ", tops_path %>
+        <%= link_to "焼き鳥一覧", foods_path %>
+        <%= link_to "ドリンク一覧", drinks_path %>
+      </ul>
+
+
+  </header>
 
   <body>
     <%= yield %>
