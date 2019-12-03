@@ -1,0 +1,25 @@
+<h1>ユーザー一覧</h1>
+
+
+<table>
+  <tr>
+    <th>ユーザー名</th>
+    <th>Email</th>
+  </tr>
+
+<% @users.each do |user| %>
+  <tr>
+    <td><%= user.name %></td>
+    <td><%= user.email %></td>
+
+    <%# <% if user_signed_in? %> %>
+      <td><%= link_to "ユーザーを編集する", edit_user_path(user.id), data: { confirm: '本当に編集していいですか？' } %></td>
+      <td><%= link_to 'ユーザーを削除する', user_path(user.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>
+    <%# <% end %> %>
+
+  </tr>
+<% end %>
+
+</table>
+ <%= link_to "新規登録", new_user_registration_path %>
+<br>
