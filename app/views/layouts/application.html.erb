@@ -10,13 +10,36 @@
   </head>
   <header>
     <h> やきとり　</h>
-    </header>
+      <ul>
+        <%= link_to "トップページ", tops_path %>
+        <%= link_to "焼き鳥一覧", foods_path %>
+        <%= link_to "ドリンク一覧", drinks_path %>
+      </ul>
+
+
+  </header>
 
   <body>
+
+    <% if notice %>
+      <p class="alert alert-notice"><%= notice %></p>
+    <% end %>
+      <% if alert %>
+        <p class="alert alert-error"><%= alert %></p>
+    <% end %>
+
+
     <%= yield %>
+
   </body>
 
   <footer>
     <h> 東京都一之江</h>
+    <% if user_signed_in? %>
+      <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+    <% else %>
+      <%= link_to "新規登録", new_user_registration_path %>
+      <%= link_to "ログイン", new_user_session_path %>
+    <% end %>
     </footer>
 </html>
