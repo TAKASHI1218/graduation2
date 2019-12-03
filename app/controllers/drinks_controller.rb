@@ -1,4 +1,5 @@
 class DrinksController < ApplicationController
+
   before_action :set_drink, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -6,7 +7,10 @@ class DrinksController < ApplicationController
   end
 
   def new
-    @drink = Drink.new
+    if user_signed_in?
+      @drink = Drink.new
+    else redirect_to tops_path, notice:"権限がありません"
+    end
   end
 
   def create
@@ -22,6 +26,9 @@ class DrinksController < ApplicationController
   end
 
   def edit
+      if user_signed_in?
+      else redirect_to tops_path, notice:"権限がありません"
+      end
   end
 
   def update

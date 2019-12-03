@@ -1,5 +1,5 @@
 <h1>焼き鳥一覧</h1>
-<p><%= notice %></p>
+
 
 <table>
   <tr>
@@ -22,9 +22,10 @@
           <%= "" =%>
         <% end %>
     </td>
-    <td><%= link_to '焼き鳥を編集する', edit_food_path(food.id), data: { confirm: '本当に編集していいですか？' } %></td>
-    <td><%= link_to '焼き鳥を削除する', food_path(food.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>
-
+    <% if user_signed_in? %>
+      <td><%= link_to '焼き鳥を編集する', edit_food_path(food.id), data: { confirm: '本当に編集していいですか？' } %></td>
+      <td><%= link_to '焼き鳥を削除する', food_path(food.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>
+    <% end %>
 
 
   </tr>
@@ -32,5 +33,6 @@
 </table>
 
 <br>
-
-<%=link_to '新しく焼き鳥を登録する', new_food_path %>
+<% if user_signed_in? %>
+  <%=link_to '新しく焼き鳥を登録する', new_food_path %>
+<% end %>

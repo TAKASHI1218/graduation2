@@ -1,11 +1,15 @@
 class FoodsController < ApplicationController
+
   before_action :set_food, only: [:show, :edit, :update, :destroy]
   def index
     @foods = Food.all
   end
 
   def new
-    @food = Food.new
+    if user_signed_in?
+      @food = Food.new
+    else redirect_to tops_path, notice:"権限がありません"
+    end
   end
 
   def create
@@ -21,6 +25,9 @@ class FoodsController < ApplicationController
   end
 
   def edit
+    if user_signed_in?
+    else redirect_to tops_path, notice:"権限がありません"
+    end
   end
 
   def update
