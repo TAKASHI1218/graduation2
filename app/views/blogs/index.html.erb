@@ -16,12 +16,8 @@
 
     <td><%= blog.title %></td>
     <td><%= blog.content %></td>
-    <td><% if blog.picture && blog.picture.url %>
-          <%= link_to '写真', blog_path(blog.id) %>
-        <% else %>
-          <%= "" =%>
-        <% end %>
-    </td>
+    <td><%= link_to '詳細', blog_path(blog.id) %></td>
+
     <% if user_signed_in? %>
       <td><%= link_to 'ブログを編集する', edit_blog_path(blog.id), data: { confirm: '本当に編集していいですか？' } %></td>
       <td><%= link_to 'ブログを削除する', blog_path(blog.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>
