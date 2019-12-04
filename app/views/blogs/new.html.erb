@@ -24,11 +24,8 @@
   </div>
 
   <div class="blog_picture">
-    <%= form.label :picture%>
+    <%= form.label :picture %>
     <%= form.file_field :picture %>
-    <% if @blog.picture && @blog.picture.url %>
-    <%= form.hidden_field :image_cache %>
-    <% end %>
   </div>
 
   <%= form.submit %>
