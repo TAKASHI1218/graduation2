@@ -1,0 +1,10 @@
+<ul>
+  <% comments.each do |comment| %>
+    <% if comment.id.present? %>
+      <p><%= comment.content %></p>
+
+     <p><%= link_to 'コメントを削除する', "/blogs/#{comment.blog_id}/comments/#{comment.id}", method: :delete, remote: true %></p>
+     <% end %>
+ <% end %>
+
+</ul>

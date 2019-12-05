@@ -1,9 +1,19 @@
 Rails.application.routes.draw do
-  devise_for :users
+
+
+
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   root 'tops#index'
+  devise_for :users
+   resources :users
   resources :tops
   resources :drinks
   resources :foods
+  resources :blogs do
+    resources :comments
+  end
+  resources :maps, only: [:index]
+
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end

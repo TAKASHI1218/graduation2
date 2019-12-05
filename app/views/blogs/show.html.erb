@@ -1,0 +1,28 @@
+<div class="container">
+  <p id="notice"><%= notice %></p>
+
+  <div class="blog-text">
+    <p><strong>タイトル</strong>：<%= @blog.title %></p>
+    <p><strong>内容</strong>：<%= @blog.content %></p>
+
+    <p><strong>写真</strong>：
+      <% if  @blog.picture.url %>
+        <%= image_tag @blog.picture.url %>
+      <% else %>
+        <%= '写真はありません。' %>
+      <% end %>
+    </p>
+
+  </div>
+
+  <p>コメント一覧</p>
+
+  <div id="comments_area">
+    <%= render partial: 'comments/index', locals: { comments: @comments, blog: @blog } %>
+  </div>
+
+  <%= render partial: 'comments/form', locals: { comment: @comment, blog: @blog } %>
+
+  <%= link_to '編集', edit_blog_path(@blog) %> |
+  <%= link_to '戻る', blogs_path %>
+</div>
