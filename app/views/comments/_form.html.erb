@@ -14,14 +14,11 @@
     <%= form.label :content %>
     <%= form.text_area :content %>
   </div>
-   <div class='field'>
-     <%= link_to 'コメントを削除する',  blog_comment_path[:blog_id, comment.id], method: :delete, remote:true %>
 
-  <div class="actions">
+
+
+
     <%= form.submit %>
-  </div>
-  <div class="actions">
-
   </div>
 
 <% end %>

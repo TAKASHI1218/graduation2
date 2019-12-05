@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
-  def index
-    @comments = Comment.all
-  end 
+  # def index
+  #   @comments = Comment.all
+  # end
 
   def create
     @blog = Blog.find(params[:blog_id])
@@ -9,6 +9,7 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       if @comment.save
+
         format.js { render :index }
       else
         format.html { redirect_to blog_path(@blog), notice: '投稿できませんでした。。'}
@@ -17,20 +18,22 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-  binding.pry
-  @comment = @blog.comment.find(params[:id])
+    @comment = Comment.find(params[:id])
+
   respond_to do |format|
-    if current_user.id == @comment.user_id
-      @comment.destroy
+    if @comment.destroy
       format.js { render :index }
     else
-      format.html { redirect_to blog_path(@blog), notice: '削除できませんでした。。'}
+      format.html { redirect_to blog_path(@blog), notice: '投稿できませんでした。。'}
     end
+   end
   end
+
+
 
   private
 
   def comment_params
-    params.require(:comment).permit(:blog_id, :content)
+    params.require(:comment).permit(:blog_id, :content, :user_id)
   end
 end
