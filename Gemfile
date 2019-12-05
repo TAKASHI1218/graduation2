@@ -7,6 +7,7 @@ gem 'mini_magick'
 gem 'devise'
 gem 'rails_admin', '~> 2.0'
 gem 'cancancan'
+gem 'google-analytics-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
 # Use postgresql as the database for Active Record
