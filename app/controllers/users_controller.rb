@@ -5,6 +5,10 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
+  # def show
+  #   @user = User.find(params[:id])
+  # end 
+
   # def destroy
   #   @user.destroy
   #   redirect_to users_path, notice: 'ユーザー削除しました'

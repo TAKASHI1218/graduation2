@@ -1,9 +1,19 @@
 .main-container{
-  background-image: url("13744.jpg");
-  background-position:center;
-  background-repeat: no-repeat;
   height:900px;
-  width:1200px;
+  width:100%;
+
+  background-image:
+   url("13744.jpg"),
+   url("14373.jpg"),
+   url("14375.jpg"),
+   url("14376.jpg");
+  // background-image: url("14374.jpg");
+  // background-position:contain;
+  background-repeat:
+  no-repeat,
+  no-repeat,
+  no-repeat,
+  no-repeat;
 
   background-size:contain;
 }
