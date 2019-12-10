@@ -8,12 +8,12 @@ class BlogsController < ApplicationController
       @blogs = Blog.all.order("created_at DESC")
     end
 
-    if params[:sort_priority]
-      @blogs = Blog.all.order("priority ASC")
+    if params[:sort_status]
+      @blogs = Blog.all.order("status ASC")
     end
 
-    if params[:sort_cut_off_date]
-      @blogs = Blog.all.order("cut_off_date ASC")
+    if params[:sort_visit_date]
+      @blogs = Blog.all.order("visit_date ASC")
     end
   end
 
@@ -63,7 +63,7 @@ class BlogsController < ApplicationController
   end
 
   def blog_params
-    params.require(:blog).permit(:title, :content, :picture, :picture_cache, :priority, :cut_off_date, :status, :user_id )
+    params.require(:blog).permit(:title, :content, :picture, :picture_cache, :priority, :visit_date, :status, :user_id )
   end
 
 end

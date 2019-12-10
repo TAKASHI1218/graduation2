@@ -1,9 +1,9 @@
 <h1>ブログ一覧</h1>
 
 <br>
-<%= link_to '優先順位でソートする', blogs_path(sort_priority: "true") %>
+<%= link_to 'ご満足度でソートする', blogs_path(sort_status: "true") %>
 <br>
-<%= link_to '終了期限でソートする', blogs_path(sort_cut_off_date: "true") %>
+<%= link_to 'ご来店日でソートする', blogs_path(sort_visit_date: "true") %>
 <br>
 <%= link_to '入力された順でソートする', blogs_path(sort_created: "true") %>
 
@@ -24,9 +24,8 @@
 
     <th>    </th>
 
-    <th>状態</th>
-    <th>優先度</th>
-    <th>期限</th>
+    <th>ご満足度</th>
+    <th>ご来店日</th>
     <th></th>
 
   </tr>
@@ -48,12 +47,11 @@
       <td>     </td>
 
     <td><%= blog.status %></td>
-    <td><%= blog.priority %></td>
 
-    <td><% if blog.cut_off_date %>
-      <%= blog.cut_off_date.strftime('%Y年%m月%d日') %>
+    <td><% if blog.visit_date %>
+      <%= blog.visit_date.strftime('%Y年%m月%d日') %>
         <% else %>
-      <%= blog.cut_off_date %>
+      <%= blog.visit_date %>
         <% end %>
     </td>
 
