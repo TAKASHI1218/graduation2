@@ -1,12 +1,33 @@
 <h1>ブログ一覧</h1>
 
+<br>
+<%= link_to '優先順位でソートする', blogs_path(sort_priority: "true") %>
+<br>
+<%= link_to '終了期限でソートする', blogs_path(sort_cut_off_date: "true") %>
+<br>
+<%= link_to '入力された順でソートする', blogs_path(sort_created: "true") %>
+
+<br>
+<br>
+
+
+
+
 
 <table>
   <tr>
     <th>ユーザー</th>
     <th>タイトル</th>
     <th>コメント</th>
-    <th>写真</th>
+    <th>写真の有無</th>
+    <th>作成日</th>
+
+    <th>    </th>
+
+    <th>状態</th>
+    <th>優先度</th>
+    <th>期限</th>
+    <th></th>
 
   </tr>
 
@@ -16,7 +37,29 @@
 
     <td><%= blog.title %></td>
     <td><%= blog.content %></td>
-    <td><%= link_to '詳細', blog_path(blog.id) %></td>
+    <td><% if blog.picture.url %>
+      <%=  '★'%>
+        <% else %>
+      <%=   'なし'%>
+        <% end %>
+    </td>
+    <td><%= blog.created_at.strftime('%Y年%m月%d日')%></td>
+
+      <td>     </td>
+
+    <td><%= blog.status %></td>
+    <td><%= blog.priority %></td>
+
+    <td><% if blog.cut_off_date %>
+      <%= blog.cut_off_date.strftime('%Y年%m月%d日') %>
+        <% else %>
+      <%= blog.cut_off_date %>
+        <% end %>
+    </td>
+
+
+
+    <td><%= link_to '詳細確認＆コメント入力', blog_path(blog.id) %></td>
 
     <% if user_signed_in? %>
       <td><%= link_to 'ブログを編集する', edit_blog_path(blog.id), data: { confirm: '本当に編集していいですか？' } %></td>
@@ -27,6 +70,10 @@
   </tr>
 <% end %>
 </table>
+
+
+
+
 
 <br>
 <% if user_signed_in? %>

@@ -2,7 +2,19 @@ class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy]
 
   def index
-    @blogs = Blog.all
+    @blogs = Blog.all.order("created_at DESC")
+
+    if params[:sort_created]
+      @blogs = Blog.all.order("created_at DESC")
+    end
+
+    if params[:sort_priority]
+      @blogs = Blog.all.order("priority ASC")
+    end
+
+    if params[:sort_cut_off_date]
+      @blogs = Blog.all.order("cut_off_date ASC")
+    end
   end
 
   def new
@@ -51,7 +63,7 @@ class BlogsController < ApplicationController
   end
 
   def blog_params
-    params.require(:blog).permit(:title, :content, :picture, :picture_cache, :user_id )
+    params.require(:blog).permit(:title, :content, :picture, :picture_cache, :priority, :cut_off_date, :status, :user_id )
   end
 
 end

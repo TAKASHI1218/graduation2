@@ -1,0 +1,48 @@
+<%= form_with(model: @blog, local: true) do |form| %>
+  <% if @blog.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @blog.errors.count %>件のエラーがあります。</h2>
+      <ul>
+
+      <% @blog.errors.full_messages.each do |msg| %>
+        <li><%=msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="blog_title">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="blog_content">
+    <%= form.label :content %>
+    <%= form.text_field :content %>
+  </div>
+
+  <div class="blog_cut_off_date">
+    <%= form.label :cut_off_date %>
+    <%= form.date_select :cut_off_date,  include_blank: true %>
+  </div>
+
+  <div class="blog_status">
+    <%= form.label :status %>
+    <%= form.select :status, Blog.statuses.keys.to_a, {} %>
+
+  </div>
+
+  <div class="blog_priority">
+    <%= form.label :priority %>
+    <%= form.select :priority, Blog.priorities.keys.to_a, {} %>
+  </div>
+
+  <div class="blog_picture">
+    <%= form.label :picture %>
+    <%= form.file_field :picture %>
+  </div>
+
+  <%= form.submit %>
+<% end %>
+
+<%= link_to "ブログ一覧画面に戻る", blogs_path %>

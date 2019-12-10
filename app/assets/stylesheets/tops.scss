@@ -1,3 +1,19 @@
-// Place all the styles related to the tops controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.main-container{
+  height:900px;
+  width:100%;
+
+  background-image:
+   url("13744.jpg"),
+   url("14373.jpg"),
+   url("14375.jpg"),
+   url("14376.jpg");
+  // background-image: url("14374.jpg");
+  // background-position:contain;
+  background-repeat:
+  no-repeat,
+  no-repeat,
+  no-repeat,
+  no-repeat;
+
+  background-size:contain;
+}
