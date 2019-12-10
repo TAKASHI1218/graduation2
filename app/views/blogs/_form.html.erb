@@ -21,20 +21,15 @@
     <%= form.text_field :content %>
   </div>
 
-  <div class="blog_cut_off_date">
-    <%= form.label :cut_off_date %>
-    <%= form.date_select :cut_off_date,  include_blank: true %>
+  <div class="blog_visit_date">
+    <%= form.label :visit_date %>
+    <%= form.date_select :visit_date,  include_blank: true %>
   </div>
 
   <div class="blog_status">
     <%= form.label :status %>
     <%= form.select :status, Blog.statuses.keys.to_a, {} %>
 
-  </div>
-
-  <div class="blog_priority">
-    <%= form.label :priority %>
-    <%= form.select :priority, Blog.priorities.keys.to_a, {} %>
   </div>
 
   <div class="blog_picture">
