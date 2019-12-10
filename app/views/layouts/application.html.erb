@@ -11,12 +11,24 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <header>
-    <h> やきとり　</h>
+      <h1>瑞江の本格炭火の焼き鳥店 『鳥勇』</h1>
+
       <ul>
+
         <%= link_to "トップページ", tops_path %>
         <%= link_to "アクセス", maps_path %>
         <%= link_to "焼き鳥一覧", foods_path %>
         <%= link_to "ドリンク一覧", drinks_path %>
+
+        <% if user_signed_in? %>
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+          <%= link_to "ユーザー一覧", users_path %>
+
+        <% else %>
+         <%= link_to "ログイン", new_user_session_path %>
+          <%= link_to "新規登録", new_user_registration_path %>
+        <% end %>
+        
       </ul>
 
 
@@ -37,14 +49,16 @@
   </body>
 
   <footer>
-    <h> 東京都一之江</h>
-    <% if user_signed_in? %>
-      <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-      <%= link_to "ユーザー一覧", users_path %>
+    <br>
 
-    <% else %>
-     <%= link_to "ログイン", new_user_session_path %>
-      <%= link_to "新規登録", new_user_registration_path %>
-    <% end %>
+
+
+
+    <h3>住所：〒132-0013 東京都江戸川区江戸川２丁目６−２</h3>
+
+    <h4>営業時間：火曜日～日曜　18時から24時</h4>
+    <h4>定休日：月曜</h4>
+
+
     </footer>
 </html>

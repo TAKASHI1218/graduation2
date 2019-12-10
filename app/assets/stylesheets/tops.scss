@@ -1,18 +1,57 @@
-.main-container{
-  height:900px;
+.f-container{
   width:100%;
+  height: 100%;
 
-  background-image:
-   url("13744.jpg"),
-   url("14373.jpg"),
-   url("14375.jpg");
-
-  // background-image: url("14374.jpg");
-  // background-position:contain;
-  background-repeat:
-  no-repeat,
-  no-repeat,
-  no-repeat;
-
-  background-size:contain;
+  background-image: url("13744.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background: rgba(255,255,255,0.7);
+  background-color: black;
+  color: white;
+  font-family: serif;
+  opacity: black;
+  // background-size: cover;
 }
+
+// .f1top-item {order: 3;
+//  width: 100%;
+//  height: 100%;
+//  background-image: url("13744.jpg");
+//  background-size: cover;}
+//
+// .f2top-item {order: 2;
+//   width: 100%;
+//   height: 100%;
+//   background-image: url("14373.jpg");
+//   background-size: cover;}
+//
+// .f3top-item {order: 3;
+//     width: 100%;
+//     height: 100%;
+//     background-image: url("14376.jpg");
+//     background-size: cover;}
+// //
+// .top_main_container{
+//
+//   display:flex;
+// }
+//
+//
+// .top_picture1{
+//   order: 1;
+//   background-image: url("13744.jpg");
+//   // background-size:contain;
+// }
+//
+// .top_picture2{
+//   order: 2;
+//   background-image:  url("14375.jpg");
+//   // background-size:contain;
+// }
+// //
+// // .top-picture3{
+// //    order: 3;
+// //   background-image:
+// //   url("14373.jpg");
+// //   // background-size:contain;
+// // }
