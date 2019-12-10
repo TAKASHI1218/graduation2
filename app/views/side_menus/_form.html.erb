@@ -1,33 +1,33 @@
 
-<%= form_with(model: @food, local: true) do |form| %>
-  <% if @food.errors.any? %>
+<%= form_with(model: @side_menu, local: true) do |form| %>
+  <% if @side_menu.errors.any? %>
     <div id="error_explanation">
-      <h2><%= @food.errors.count %>件のエラーがあります。</h2>
+      <h2><%= @side_menu.errors.count %>件のエラーがあります。</h2>
       <ul>
 
-      <% @food.errors.full_messages.each do |msg| %>
+      <% @side_menu.errors.full_messages.each do |msg| %>
         <li><%=msg %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div class="food_name">
+  <div class="side_menu_name">
     <%= form.label :name %>
     <%= form.text_field :name %>
   </div>
-  <div class="food_picture">
+  <div class="side_menu_picture">
     <%= form.label :picture%>
     <%= form.file_field :picture %>
-    <% if @food.picture && @food.picture.url %>
+    <% if @side_menu.picture && @side_menu.picture.url %>
     <%= form.hidden_field :image_cache %>
     <% end %>
   </div>
-  <div class="food_price">
+  <div class="side_menu_price">
     <%= form.label :price %>
     <%= form.number_field :price %>
   </div>
-  <div class="food_comment">
+  <div class="side_menu_comment">
     <%= form.label :comment %>
     <%= form.text_field :comment %>
   </div>
@@ -38,4 +38,4 @@
   <%= form.submit %>
 <% end %>
 
-<%= link_to "焼き鳥一覧画面に戻る", foods_path %>
+<%= link_to "サイドメニュー一覧画面に戻る", side_menus_path %>

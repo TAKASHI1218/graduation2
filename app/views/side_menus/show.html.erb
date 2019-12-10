@@ -1,0 +1,10 @@
+<h1>サイドメニュー詳細画面</h1>
+<p>サイドメニュー: <%= @food.name %></p>
+<p>
+  <strong>写真: </strong>
+  <%= image_tag @food.picture.url %>
+</p>
+<p>値段: <%= @food.price %></p>
+<p>一言: <%= @food.comment %></p>
+
+<%= link_to "サイドメニュー一覧画面に戻る", foods_path %>

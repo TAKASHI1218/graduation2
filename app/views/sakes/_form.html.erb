@@ -1,33 +1,33 @@
 
-<%= form_with(model: @food, local: true) do |form| %>
-  <% if @food.errors.any? %>
+<%= form_with(model: @sake, local: true) do |form| %>
+  <% if @sake.errors.any? %>
     <div id="error_explanation">
-      <h2><%= @food.errors.count %>件のエラーがあります。</h2>
+      <h2><%= @sake.errors.count %>件のエラーがあります。</h2>
       <ul>
 
-      <% @food.errors.full_messages.each do |msg| %>
+      <% @sake.errors.full_messages.each do |msg| %>
         <li><%=msg %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div class="food_name">
+  <div class="sake_name">
     <%= form.label :name %>
     <%= form.text_field :name %>
   </div>
-  <div class="food_picture">
+  <div class="sake_picture">
     <%= form.label :picture%>
     <%= form.file_field :picture %>
-    <% if @food.picture && @food.picture.url %>
+    <% if @sake.picture && @sake.picture.url %>
     <%= form.hidden_field :image_cache %>
     <% end %>
   </div>
-  <div class="food_price">
+  <div class="sake_price">
     <%= form.label :price %>
     <%= form.number_field :price %>
   </div>
-  <div class="food_comment">
+  <div class="sake_comment">
     <%= form.label :comment %>
     <%= form.text_field :comment %>
   </div>
@@ -38,4 +38,4 @@
   <%= form.submit %>
 <% end %>
 
-<%= link_to "焼き鳥一覧画面に戻る", foods_path %>
+<%= link_to "日本酒一覧画面に戻る", sakes_path %>

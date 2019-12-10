@@ -1,0 +1,2 @@
+module SideMenusHelper
+end

@@ -13,10 +13,12 @@ Rails.application.routes.draw do
 
 
   resources :users
-
   resources :tops
   resources :drinks
   resources :foods
+  resources :side_menus
+  resources :sakes
+
   resources :blogs do
     resources :comments
   end
