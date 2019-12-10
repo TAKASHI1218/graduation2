@@ -3,7 +3,7 @@ class Blog < ApplicationRecord
   has_many :comments, dependent: :destroy
   mount_uploader :picture, ImageUploader
   enum priority:{高: 0,中: 1,低: 2,なし: 3}, _suffix: true
-  enum status:{未着手: 0,着手中: 1,完了: 2,なし: 3}, _suffix: true
+  enum status:{とても満足: 0,満足: 1,普通: 2,不満: 3, とても不満: 4}, _suffix: true
 
 
 end
