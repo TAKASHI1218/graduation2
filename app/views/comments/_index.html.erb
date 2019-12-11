@@ -2,9 +2,15 @@
   <% comments.each do |comment| %>
     <% if comment.id.present? %>
       <p><%= comment.content %></p>
+    <% end %>
+
+    <% if current_user == nil %>
+    <% elsif current_user.admin %>
+
 
      <p><%= link_to 'コメントを削除する', "/blogs/#{comment.blog_id}/comments/#{comment.id}", method: :delete, remote: true %></p>
-     <% end %>
- <% end %>
+    <% end %> 
+   <% end %>
+
 
 </ul>
