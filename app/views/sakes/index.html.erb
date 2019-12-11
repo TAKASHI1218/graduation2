@@ -25,12 +25,13 @@
     <td><%= sake.price %></td>
     <td><%= sake.comment %></td>
     <td><% if sake.picture && sake.picture.url %>
-          <%= link_to 'あり', sake_path(sake.id) %>
+          <%= link_to '🐓', sake_path(sake.id) %>
         <% else %>
           <%= "" =%>
         <% end %>
     </td>
-    <% if user_signed_in? %>
+    <% if current_user == nil %>
+    <% elsif current_user.admin %>
       <td><%= link_to '日本酒を編集する', edit_sake_path(sake.id), data: { confirm: '本当に編集していいですか？' } %></td>
       <td><%= link_to '日本酒を削除する', sake_path(sake.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>
     <% end %>
@@ -43,7 +44,8 @@
 </div sake>
 
 <br>
-<% if user_signed_in? %>
+<% if current_user == nil %>
+<% elsif current_user.admin %>
   <%=link_to '新しく日本酒を登録する', new_sake_path %>
 <% end %>
 </div>

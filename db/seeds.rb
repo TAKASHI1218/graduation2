@@ -79,7 +79,7 @@
 
 
 
-Food.create!(name: "ちょうちん",price:"400", comment:"", picture: File.open("13743.jpg"))
+Food.create!(name: "ちょうちん",price:"400", comment:"", picture: File.open("./13743.jpg"))
 
 
 

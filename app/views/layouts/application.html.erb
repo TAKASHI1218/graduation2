@@ -21,15 +21,19 @@
         <%= link_to "サイドメニュー一覧", side_menus_path %>
         <%= link_to "ドリンク一覧", drinks_path %>
         <%= link_to "日本酒一覧", sakes_path %>
+        <%= link_to "ブログ一覧", blogs_path %>
 
+        <br>
+        <br>
         <% if user_signed_in? %>
           <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-          <%= link_to "ユーザー一覧", users_path %>
-
         <% else %>
          <%= link_to "ログイン", new_user_session_path %>
-          <%= link_to "新規登録", new_user_registration_path %>
+         <%= link_to "新規登録", new_user_registration_path %>
         <% end %>
+
+
+
 
       </ul>
 
@@ -60,6 +64,13 @@
 
     <h4>営業時間：火曜日～日曜　18時から24時</h4>
     <h4>定休日：月曜</h4>
+
+    <% if current_user == nil %>
+    <% elsif current_user.admin %>
+      <%= link_to 'ユーザー一覧', users_path %>
+      <%= link_to '管理ページ', rails_admin_path %>
+    <% end %>
+
 
 
     </footer>

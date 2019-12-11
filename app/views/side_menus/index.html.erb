@@ -25,12 +25,13 @@
     <td><%= side_menu.price %></td>
     <td><%= side_menu.comment %></td>
     <td><% if side_menu.picture && side_menu.picture.url %>
-          <%= link_to 'あり', side_menu_path(side_menu.id) %>
+          <%= link_to '🐓', side_menu_path(side_menu.id) %>
         <% else %>
           <%= "" =%>
         <% end %>
     </td>
-    <% if user_signed_in? %>
+    <% if current_user == nil %>
+    <% elsif current_user.admin %>
       <td><%= link_to 'サイドメニューを編集する', edit_side_menu_path(side_menu.id), data: { confirm: '本当に編集していいですか？' } %></td>
       <td><%= link_to 'サイドメニューを削除する', side_menu_path(side_menu.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>
     <% end %>
@@ -43,7 +44,8 @@
 </div_side_menu>
 
 <br>
-<% if user_signed_in? %>
+<% if current_user == nil %>
+<% elsif current_user.admin %>
   <%=link_to '新しくサイドメニューを登録する', new_side_menu_path %>
 <% end %>
 </div>
