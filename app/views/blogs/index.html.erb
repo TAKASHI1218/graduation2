@@ -63,7 +63,8 @@
 
     <td><%= link_to '詳細確認＆コメント入力', blog_path(blog.id) %></td>
 
-    <% if user_signed_in? %>
+    <% if current_user == nil %>
+    <% elsif current_user.id == blog.user_id || current_user.admin %>
       <td><%= link_to 'ブログを編集する', edit_blog_path(blog.id), data: { confirm: '本当に編集していいですか？' } %></td>
       <td><%= link_to 'ブログを削除する', blog_path(blog.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>
     <% end %>
