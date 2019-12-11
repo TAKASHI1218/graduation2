@@ -12,7 +12,8 @@
     <td><%= drink.name %></td>
     <td><%= drink.price %></td>
 
-    <% if user_signed_in? %>
+    <% if current_user == nil %>
+    <% elsif current_user.admin %>
       <td><%= link_to "ドリンクを編集する", edit_drink_path(drink.id), data: { confirm: '本当に編集していいですか？' } %></td>
       <td><%= link_to 'ドリンクを削除する', drink_path(drink.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>
     <% end %>
@@ -24,6 +25,7 @@
 
 <br>
 
-<% if user_signed_in? %>
+<% if current_user == nil %>
+<% elsif current_user.admin %>
   <%= link_to '新しくドリンクを登録する', new_drink_path %>
 <% end %>

@@ -25,15 +25,18 @@
     <td><%= food.price %></td>
     <td><%= food.comment %></td>
     <td><% if food.picture && food.picture.url %>
-          <%= link_to 'あり', food_path(food.id) %>
+          <%= link_to '🐓', food_path(food.id) %>
         <% else %>
           <%= "" =%>
         <% end %>
     </td>
-    <% if user_signed_in? %>
-      <td><%= link_to '焼き鳥を編集する', edit_food_path(food.id), data: { confirm: '本当に編集していいですか？' } %></td>
-      <td><%= link_to '焼き鳥を削除する', food_path(food.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>
-    <% end %>
+
+      <% if current_user == nil %>
+      <% elsif current_user.admin %>
+        <td><%= link_to '焼き鳥を編集する', edit_food_path(food.id), data: { confirm: '本当に編集していいですか？' } %></td>
+        <td><%= link_to '焼き鳥を削除する', food_path(food.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>
+      <% end %>
+
 
 
   </tr>
@@ -43,7 +46,8 @@
 </div_food>
 
 <br>
-<% if user_signed_in? %>
+<% if current_user == nil %>
+<% elsif current_user.admin %>
   <%=link_to '新しく焼き鳥を登録する', new_food_path %>
 <% end %>
 </div>

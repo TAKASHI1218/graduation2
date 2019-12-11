@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
 
 
-  root :to => 'oauth_test#index'
+  root :to => 'tops#index'
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   # root 'tops#index'

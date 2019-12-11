@@ -5,12 +5,17 @@
   <tr>
     <th>ユーザー名</th>
     <th>Email</th>
+    <th>管理者</th>
   </tr>
 
 <% @users.each do |user| %>
   <tr>
     <td><%= user.name %></td>
     <td><%= user.email %></td>
+    <td><% if user.admin %>
+          <%=  '🐓' %>
+        <% end %>
+    </td>
   </tr>
 <% end %>
 
