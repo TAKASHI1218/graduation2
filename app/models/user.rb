@@ -1,6 +1,12 @@
 class User < ApplicationRecord
+  validates :name, uniqueness: true
+  validates :name, presence: true
+
+
+  
+
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable, :confirmable, :omniauthable, omniauth_providers: %i[facebook google]
+         :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: %i[facebook google]
   has_many :blogs
   has_many :comments, through: :blogs
 
