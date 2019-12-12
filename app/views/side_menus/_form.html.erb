@@ -19,9 +19,11 @@
   <div class="side_menu_picture">
     <%= form.label :picture%>
     <%= form.file_field :picture %>
-    <% if @side_menu.picture && @side_menu.picture.url %>
-    <%= form.hidden_field :image_cache %>
+    <% if @side_menu.picture.url %>
+      <%= image_tag @side_menu.picture.url %>
     <% end %>
+    <br>
+
   </div>
   <div class="side_menu_price">
     <%= form.label :price %>

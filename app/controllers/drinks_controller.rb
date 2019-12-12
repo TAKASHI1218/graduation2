@@ -1,6 +1,9 @@
 class DrinksController < ApplicationController
 
   before_action :set_drink, only: [:show, :edit, :update, :destroy]
+  before_action :refuse_to_go_to, only: [:new, :edit]
+
+
 
   def index
     @drinks = Drink.all
@@ -55,4 +58,13 @@ class DrinksController < ApplicationController
   def set_drink
     @drink = Drink.find(params[:id])
   end
+
+  def refuse_to_go_to
+    unless current_user.admin
+      redirect_to tops_path, notice: '権限がありません。'
+    end
+  end 
+
+
+
 end

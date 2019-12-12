@@ -1,5 +1,8 @@
 class SideMenusController < ApplicationController
   before_action :set_side_menu, only: [:show, :edit, :update, :destroy]
+  before_action :refuse_to_go_to, only: [:new, :edit]
+
+
 
   def index
     @side_menus = SideMenu.all
@@ -25,9 +28,6 @@ class SideMenusController < ApplicationController
   end
 
   def edit
-    if user_signed_in?
-    else redirect_to tops_path, notice:"権限がありません"
-    end
   end
 
   def update
@@ -51,5 +51,11 @@ class SideMenusController < ApplicationController
 
   def set_side_menu
     @side_menu = SideMenu.find(params[:id])
+  end
+
+  def refuse_to_go_to
+    unless current_user.admin
+      redirect_to tops_path, notice: '権限がありません。'
+    end
   end
 end

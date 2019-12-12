@@ -34,7 +34,14 @@
 
   <div class="blog_picture">
     <%= form.label :picture %>
+    <% if @blog.picture.url %>
+      <%= image_tag @blog.picture.url %>
+    <% end %>
+    <br>
     <%= form.file_field :picture %>
+
+
+
   </div>
 
   <%= form.submit %>

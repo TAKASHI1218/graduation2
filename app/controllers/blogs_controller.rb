@@ -37,7 +37,10 @@ class BlogsController < ApplicationController
   end
 
   def edit
-    if user_signed_in?
+     if user_signed_in?
+      # @blog.picture.url unless @blog.picture.blank?
+
+    
     else redirect_to tops_path, notice:"権限がありません。"
     end
   end

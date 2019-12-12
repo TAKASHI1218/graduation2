@@ -1,6 +1,9 @@
 class FoodsController < ApplicationController
 
   before_action :set_food, only: [:show, :edit, :update, :destroy]
+  before_action :refuse_to_go_to, only: [:new, :edit]
+
+
   def index
     @foods = Food.all
   end
@@ -25,9 +28,6 @@ class FoodsController < ApplicationController
   end
 
   def edit
-    if user_signed_in?
-    else redirect_to tops_path, notice:"権限がありません"
-    end
   end
 
   def update
@@ -51,6 +51,12 @@ class FoodsController < ApplicationController
 
   def set_food
     @food = Food.find(params[:id])
+  end
+
+  def refuse_to_go_to
+    unless current_user.admin
+      redirect_to tops_path, notice: '権限がありません。'
+    end
   end
 
 

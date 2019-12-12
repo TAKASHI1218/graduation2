@@ -1,6 +1,7 @@
 class SakesController < ApplicationController
   before_action :set_sake, only: [:show, :edit, :update, :destroy]
-  
+  before_action :refuse_to_go_to, only: [:new, :edit]
+
   def index
     @sakes = Sake.all
   end
@@ -25,9 +26,6 @@ class SakesController < ApplicationController
   end
 
   def edit
-    if user_signed_in?
-    else redirect_to tops_path, notice:"権限がありません"
-    end
   end
 
   def update
@@ -53,5 +51,10 @@ class SakesController < ApplicationController
     @sake = Sake.find(params[:id])
   end
 
+  def refuse_to_go_to
+    unless current_user.admin
+      redirect_to tops_path, notice: '権限がありません。'
+    end
+  end
 
 end

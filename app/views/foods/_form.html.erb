@@ -19,9 +19,11 @@
   <div class="food_picture">
     <%= form.label :picture%>
     <%= form.file_field :picture %>
-    <% if @food.picture && @food.picture.url %>
-    <%= form.hidden_field :image_cache %>
+    <% if @food.picture.url %>
+      <%= image_tag @food.picture.url %>
     <% end %>
+    <br>
+
   </div>
   <div class="food_price">
     <%= form.label :price %>
