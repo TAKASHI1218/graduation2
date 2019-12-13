@@ -26,12 +26,20 @@
         <%= link_to "日本酒一覧", sakes_path %>
 
         <br>
-        <% if user_signed_in? %>　　　　　
+
         <p>
+
+        <% if user_signed_in? %>　　　　　
+
         <%= current_user.name %>
         さんがログインしています。
-        </p>
         <% end %>
+        <% if current_user == nil %>
+        <% elsif current_user.admin == true %>
+          <%= '🐓' %>
+        <% end %>
+        </p>
+
         <% if user_signed_in? %>
           <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
         <% else %>

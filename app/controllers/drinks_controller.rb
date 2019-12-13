@@ -10,10 +10,7 @@ class DrinksController < ApplicationController
   end
 
   def new
-    if user_signed_in?
       @drink = Drink.new
-    else redirect_to tops_path, notice:"権限がありません"
-    end
   end
 
   def create
@@ -60,11 +57,10 @@ class DrinksController < ApplicationController
   end
 
   def refuse_to_go_to
-    unless current_user.admin
+    if current_user == nil
+      redirect_to tops_path, notice: '権限がありません。'
+    elsif current_user.admin == false
       redirect_to tops_path, notice: '権限がありません。'
     end
-  end 
-
-
-
+  end
 end

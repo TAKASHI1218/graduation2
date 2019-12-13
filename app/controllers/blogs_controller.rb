@@ -18,6 +18,9 @@ class BlogsController < ApplicationController
   end
 
   def new
+    if current_user == nil
+      redirect_to tops_path, notice:"権限がありません。"
+    end      
     @blog = Blog.new
   end
 
@@ -37,11 +40,11 @@ class BlogsController < ApplicationController
   end
 
   def edit
-     if user_signed_in?
-      # @blog.picture.url unless @blog.picture.blank?
-
-    
-    else redirect_to tops_path, notice:"権限がありません。"
+    if current_user == nil
+      redirect_to tops_path, notice:"権限がありません。"
+    elsif current_user.id != @blog.user_id
+      redirect_to tops_path, notice:"権限がありません。"
+    elsif current_user == @blog.user || current_user.admin == true
     end
   end
 
