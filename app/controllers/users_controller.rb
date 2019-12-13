@@ -1,13 +1,28 @@
 class UsersController < ApplicationController
   # before_action :set_user, only: [:destroy, :edit]
+  before_action :refuse_to_go_to, only: [:index]
+
 
   def index
     @users = User.all
   end
 
+  def refuse_to_go_to
+    if current_user == nil
+      redirect_to tops_path, notice: '権限がありません。'
+    elsif current_user.admin == false
+      redirect_to tops_path, notice: '権限がありません。'
+    end
+  end
+end
+
+
+# unless current_user.admin
+
+
   # def show
   #   @user = User.find(params[:id])
-  # end 
+  # end
 
   # def destroy
   #   @user.destroy
@@ -39,7 +54,7 @@ class UsersController < ApplicationController
   #   params.require(:user).permit(:name, :email, :password,
   #                                   :password_confirmation)
   # end
-end
+
 
   #
   # def new

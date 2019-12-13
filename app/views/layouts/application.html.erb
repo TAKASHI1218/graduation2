@@ -17,24 +17,35 @@
 
         <%= link_to "トップページ", tops_path %>
         <%= link_to "アクセス", maps_path %>
+        <%= link_to "お店のInstagram", "https://www.instagram.com/toriyuu_yakitori", :target=>["_blank"] %>
+        <%= link_to "お客様からのレビュー一覧", blogs_path %>
+        <br>
         <%= link_to "焼き鳥一覧", foods_path %>
         <%= link_to "サイドメニュー一覧", side_menus_path %>
         <%= link_to "ドリンク一覧", drinks_path %>
         <%= link_to "日本酒一覧", sakes_path %>
-        <%= link_to "ブログ一覧", blogs_path %>
 
         <br>
-        <br>
+
+        <p>
+
+        <% if user_signed_in? %>　　　　　
+
+        <%= current_user.name %>
+        さんがログインしています。
+        <% end %>
+        <% if current_user == nil %>
+        <% elsif current_user.admin == true %>
+          <%= '🐓' %>
+        <% end %>
+        </p>
+
         <% if user_signed_in? %>
           <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
         <% else %>
          <%= link_to "ログイン", new_user_session_path %>
          <%= link_to "新規登録", new_user_registration_path %>
         <% end %>
-
-
-
-
       </ul>
 
 

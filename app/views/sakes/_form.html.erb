@@ -19,9 +19,11 @@
   <div class="sake_picture">
     <%= form.label :picture%>
     <%= form.file_field :picture %>
-    <% if @sake.picture && @sake.picture.url %>
-    <%= form.hidden_field :image_cache %>
+    <% if @sake.picture.url %>
+      <%= image_tag @sake.picture.url %>
     <% end %>
+    <br>
+
   </div>
   <div class="sake_price">
     <%= form.label :price %>

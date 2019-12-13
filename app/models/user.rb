@@ -1,6 +1,16 @@
 class User < ApplicationRecord
+  validates :name, uniqueness: true
+  validates :email, uniqueness: true
+
+  validates :name,  presence: true, length: { maximum: 10 }
+  validates :email, presence: true, length: { maximum: 30 },
+                    format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
+
+
+
+
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable, :confirmable, :omniauthable, omniauth_providers: %i[facebook google]
+         :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: %i[facebook google]
   has_many :blogs
   has_many :comments, through: :blogs
 
