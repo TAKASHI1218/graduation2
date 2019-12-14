@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_11_111738) do
+ActiveRecord::Schema.define(version: 2019_12_13_084054) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,10 +20,10 @@ ActiveRecord::Schema.define(version: 2019_12_11_111738) do
     t.text "content"
     t.text "picture"
     t.bigint "user_id"
-    t.datetime "created_at", null: false　
+    t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.date "visit_date"
-    t.integer "status", null: false
+    t.integer "status"
     t.index ["user_id"], name: "index_blogs_on_user_id"
   end
 
@@ -34,11 +34,6 @@ ActiveRecord::Schema.define(version: 2019_12_11_111738) do
     t.datetime "updated_at", null: false
     t.bigint "user_id"
     t.index ["blog_id"], name: "index_comments_on_blog_id"
-  end
-
-  create_table "controllers", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "drinks", force: :cascade do |t|
@@ -72,8 +67,6 @@ ActiveRecord::Schema.define(version: 2019_12_11_111738) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "name", default: "", null: false
-    t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -92,8 +85,9 @@ ActiveRecord::Schema.define(version: 2019_12_11_111738) do
     t.string "unconfirmed_email"
     t.string "uid", default: "", null: false
     t.string "provider", default: "", null: false
+    t.string "name", null: false
+    t.string "email", null: false
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
-    t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
   end
