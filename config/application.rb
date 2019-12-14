@@ -13,6 +13,7 @@ module Graduation
     config.i18n.default_locale = :ja
     config.generators do |g|
       g.test_framework :rspec,
+        model_specs: true,
         fixtures: true,
         view_specs: false,
         helper_specs: false,
