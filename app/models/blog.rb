@@ -5,6 +5,7 @@ class Blog < ApplicationRecord
   validates :content, presence: true
   validates :content, length:{in:1..50}
   validate :visitday_cannot_be_in_the_future
+  validates :status, presence: true
 
   def visitday_cannot_be_in_the_future
     if visit_date.present? && visit_date > Date.today

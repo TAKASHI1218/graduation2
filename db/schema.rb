@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 2019_12_11_111738) do
     t.text "content"
     t.text "picture"
     t.bigint "user_id"
-    t.datetime "created_at", null: false
+    t.datetime "created_at", null: false　
     t.datetime "updated_at", null: false
     t.date "visit_date"
     t.integer "status", null: false
