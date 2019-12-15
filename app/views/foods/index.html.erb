@@ -3,31 +3,34 @@
 
 
 <h1>焼き鳥一覧</h1>
-
-<div food>
-<table>
-  <thead>
-  <tr>
-    <th>おしなもの</th>
-    <th>値段</th>
-    <th>ひとこと</th>
-    <th>写真</th>
-
-  </tr>
-  </thead>
+<h2>40種類以上の希少部位の中から日替わりで提供する部位を備長炭で丁寧に焼き上げた焼き鳥です。<br>
+鳥を一からさばき、質の良い部位を鮮度の良い状態で丁寧に仕込み、提供しております。<br>
+極上の塩、秘伝のタレで是非お召し上がりください。
+<h2>
 
 
-  <tbody>
-<% @foods.each do |food| %>
-  <tr>
-    <td><%= food.name %></td>
+<div food150>
+  <h2>150円</h2>
+ <table>
+   <thead>
+     <tr>
+       <th>おしなもの</th>
+       <th>写真</th>
+     </tr>
+   </thead>
 
-    <td><%= food.price %></td>
-    <td><%= food.comment %></td>
-    <td><% if food.picture && food.picture.url %>
+   <tbody>
+     <% @foods.each do |food| %>
+       <% if food.price == 150 %>
+     <tr>
+       <td><%= food.name %></td>
+
+       <td>
+         <% if food.picture && food.picture.url %>
           <%= link_to '🐓', food_path(food.id) %>
-        <% else %>
+         <% else %>
           <%= "" =%>
+         <% end %>
         <% end %>
     </td>
 
@@ -36,14 +39,84 @@
         <td><%= link_to '焼き鳥を編集する', edit_food_path(food.id), data: { confirm: '本当に編集していいですか？' } %></td>
         <td><%= link_to '焼き鳥を削除する', food_path(food.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>
       <% end %>
+     </tr>
+    <% end %>
+   </tbody>
+  </table>
+</div >
 
+<div food200>
+  <h2>200円</h2>
+ <table>
+   <thead>
+     <tr>
+       <th>おしなもの</th>
+       <th>写真</th>
+     </tr>
+   </thead>
 
+   <tbody>
+     <% @foods.each do |food| %>
+       <% if food.price == 200 %>
+     <tr>
+       <td><%= food.name %></td>
 
-  </tr>
-<% end %>
-</tbody>
-</table>
-</div_food>
+       <td>
+         <% if food.picture && food.picture.url %>
+          <%= link_to '🐓', food_path(food.id) %>
+         <% else %>
+          <%= "" =%>
+         <% end %>
+        <% end %>
+    </td>
+
+      <% if current_user == nil %>
+      <% elsif current_user.admin %>
+        <td><%= link_to '焼き鳥を編集する', edit_food_path(food.id), data: { confirm: '本当に編集していいですか？' } %></td>
+        <td><%= link_to '焼き鳥を削除する', food_path(food.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>
+      <% end %>
+     </tr>
+    <% end %>
+   </tbody>
+  </table>
+</div >
+
+<div food250>
+  <h2>250円</h2>
+ <table>
+   <thead>
+     <tr>
+       <th>おしなもの</th>
+       <th>写真</th>
+     </tr>
+   </thead>
+
+   <tbody>
+     <% @foods.each do |food| %>
+       <% if food.price == 250 %>
+     <tr>
+       <td><%= food.name %></td>
+
+       <td>
+         <% if food.picture && food.picture.url %>
+          <%= link_to '🐓', food_path(food.id) %>
+         <% else %>
+          <%= "" =%>
+         <% end %>
+        <% end %>
+    </td>
+
+      <% if current_user == nil %>
+      <% elsif current_user.admin %>
+        <td><%= link_to '焼き鳥を編集する', edit_food_path(food.id), data: { confirm: '本当に編集していいですか？' } %></td>
+        <td><%= link_to '焼き鳥を削除する', food_path(food.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>
+      <% end %>
+     </tr>
+    <% end %>
+   </tbody>
+  </table>
+</div >
+
 
 <br>
 <% if current_user == nil %>

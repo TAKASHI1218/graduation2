@@ -2,7 +2,9 @@
 
 
 
-<h1>サイドメニュー一覧</h1>
+<h1>一品料理一覧</h1>
+<h2>京都坂ノ途中監修の無農薬オーガニック野菜など、<br>
+   焼き鳥の合間に一品料理も是非お楽しみください。</h2>
 
 <div side_menu>
 <table>
@@ -10,7 +12,6 @@
   <tr>
     <th>おしなもの</th>
     <th>値段</th>
-    <th>ひとこと</th>
     <th>写真</th>
 
   </tr>
@@ -23,7 +24,6 @@
     <td><%= side_menu.name %></td>
 
     <td><%= side_menu.price %></td>
-    <td><%= side_menu.comment %></td>
     <td><% if side_menu.picture && side_menu.picture.url %>
           <%= link_to '🐓', side_menu_path(side_menu.id) %>
         <% else %>
@@ -32,8 +32,8 @@
     </td>
     <% if current_user == nil %>
     <% elsif current_user.admin %>
-      <td><%= link_to 'サイドメニューを編集する', edit_side_menu_path(side_menu.id), data: { confirm: '本当に編集していいですか？' } %></td>
-      <td><%= link_to 'サイドメニューを削除する', side_menu_path(side_menu.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>
+      <td><%= link_to '一品料理を編集する', edit_side_menu_path(side_menu.id), data: { confirm: '本当に編集していいですか？' } %></td>
+      <td><%= link_to '一品料理を削除する', side_menu_path(side_menu.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>
     <% end %>
 
 
@@ -46,6 +46,6 @@
 <br>
 <% if current_user == nil %>
 <% elsif current_user.admin %>
-  <%=link_to '新しくサイドメニューを登録する', new_side_menu_path %>
+  <%=link_to '新しく一品料理を登録する', new_side_menu_path %>
 <% end %>
 </div>
