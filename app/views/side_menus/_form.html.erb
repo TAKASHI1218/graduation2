@@ -29,6 +29,11 @@
     <%= form.label :price %>
     <%= form.number_field :price %>
   </div>
+  <div class="side_menu_kind">
+    <%= form.label :kind %>
+    <%= form.select :kinds, SideMenu.kinds.keys.to_a, {} %>
+  </div>
+
 
 
 

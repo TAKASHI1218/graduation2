@@ -19,6 +19,10 @@
     <%= form.label :price %>
     <%= form.text_field :price %>
   </div>
+  <div class="drink_kind">
+    <%= form.label :kind %>
+    <%= form.select :kind, Drink.kinds.keys.to_a, {} %>
+  </div>
   <%= form.submit %>
 <% end %>
 

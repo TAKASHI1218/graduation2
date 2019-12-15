@@ -2,7 +2,7 @@
 
 
 
-<h1>焼き鳥一覧</h1>
+<h1>焼き鳥</h1>
 <h2>40種類以上の希少部位の中から日替わりで提供する部位を備長炭で丁寧に焼き上げた焼き鳥です。<br>
 鳥を一からさばき、質の良い部位を鮮度の良い状態で丁寧に仕込み、提供しております。<br>
 極上の塩、秘伝のタレで是非お召し上がりください。
@@ -10,7 +10,7 @@
 
 
 <div food150>
-  <h2>150円</h2>
+  <h2>[150円]</h2>
  <table>
    <thead>
      <tr>
@@ -31,8 +31,8 @@
          <% else %>
           <%= "" =%>
          <% end %>
-        <% end %>
-    </td>
+
+       </td>
 
       <% if current_user == nil %>
       <% elsif current_user.admin %>
@@ -40,13 +40,14 @@
         <td><%= link_to '焼き鳥を削除する', food_path(food.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>
       <% end %>
      </tr>
+     <% end %>
     <% end %>
    </tbody>
   </table>
 </div >
 
 <div food200>
-  <h2>200円</h2>
+  <h2>[200円]</h2>
  <table>
    <thead>
      <tr>
@@ -67,7 +68,7 @@
          <% else %>
           <%= "" =%>
          <% end %>
-        <% end %>
+
     </td>
 
       <% if current_user == nil %>
@@ -76,13 +77,14 @@
         <td><%= link_to '焼き鳥を削除する', food_path(food.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>
       <% end %>
      </tr>
+     <% end %>
     <% end %>
    </tbody>
   </table>
 </div >
 
 <div food250>
-  <h2>250円</h2>
+  <h2>[250円]</h2>
  <table>
    <thead>
      <tr>
@@ -102,7 +104,7 @@
           <%= link_to '🐓', food_path(food.id) %>
          <% else %>
           <%= "" =%>
-         <% end %>
+
         <% end %>
     </td>
 
@@ -112,6 +114,7 @@
         <td><%= link_to '焼き鳥を削除する', food_path(food.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>
       <% end %>
      </tr>
+      <% end %>
     <% end %>
    </tbody>
   </table>

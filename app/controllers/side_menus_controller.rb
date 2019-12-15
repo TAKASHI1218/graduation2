@@ -43,7 +43,7 @@ class SideMenusController < ApplicationController
   private
 
   def side_menu_params
-    params.require(:side_menu).permit(:name, :picture, :picture_cache, :price, :comment)
+    params.require(:side_menu).permit(:name, :picture, :picture_cache, :price, :kind)
   end
 
   def set_side_menu
