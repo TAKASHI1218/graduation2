@@ -7,6 +7,34 @@ header,footer,body {
 
 }
 
+
+.main {
+    width: 100%;
+
+}
+.main div   {
+    width: 100%;
+
+    margin: 0 auto;
+}
+
+
+.modal-title{
+  color: black;
+}
+
+.modal-content {
+           background: white;
+       }
+
+
+.modal-body {
+           background: black;
+       }
+.modal-footer{
+  color:black;
+}
+
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -19,6 +47,6 @@ header,footer,body {
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
- *= require_self
+ // for Bootstrap4
+@import "bootstrap";
  */

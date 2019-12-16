@@ -1,12 +1,21 @@
-<div class ="main-container-food">
 
 
-
+<div class="main">
+  <div>
 <h1>焼き鳥</h1>
 <h2>40種類以上の希少部位の中から日替わりで提供する部位を備長炭で丁寧に焼き上げた焼き鳥です。<br>
 鳥を一からさばき、質の良い部位を鮮度の良い状態で丁寧に仕込み、提供しております。<br>
 極上の塩、秘伝のタレで是非お召し上がりください。
-<h2>
+</h2>
+</div>
+</div>
+
+<br>
+<div class="container">
+
+  <div class="row">
+      <div class="col-sm">
+
 
 
 <div food150>
@@ -14,8 +23,8 @@
  <table>
    <thead>
      <tr>
-       <th>おしなもの</th>
-       <th>写真</th>
+       <th></th>
+       <th></th>
      </tr>
    </thead>
 
@@ -46,13 +55,19 @@
   </table>
 </div >
 
+
+</div>
+
+<div class="col-sm">
+
+
 <div food200>
   <h2>[200円]</h2>
  <table>
    <thead>
      <tr>
-       <th>おしなもの</th>
-       <th>写真</th>
+       <th></th>
+       <th></th>
      </tr>
    </thead>
 
@@ -63,13 +78,35 @@
        <td><%= food.name %></td>
 
        <td>
-         <% if food.picture && food.picture.url %>
-          <%= link_to '🐓', food_path(food.id) %>
-         <% else %>
-          <%= "" =%>
-         <% end %>
 
-    </td>
+
+
+         <!-- 切り替えボタンの設定 -->
+        <% if food.picture && food.picture.url %>
+         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter-<%= food.id %>">
+           <%=  '🐓' %>
+          <% end %>
+         </button>
+
+         <!-- モーダルの設定 -->
+         <div class="modal fade" id="exampleModalCenter-<%= food.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle-<%= food.id %>" aria-hidden="true">
+           <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+             <div class="modal-content">
+               <div class="modal-header">
+                 <h5 class="modal-title" id="exampleModalCenterTitle-<%= food.id %>"><%= food.name %></h5>
+                 <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
+                   <span aria-hidden="true">&times;</span>
+                 </button>
+               </div>
+               <div class="modal-body">
+                   <p><%= image_tag "#{food.picture.url}" %></p>
+               </div>
+               <div class="modal-footer">
+                 <h5><%= food.price %>円<h5>
+               </div>
+             </div>
+           </div>
+         </div>
 
       <% if current_user == nil %>
       <% elsif current_user.admin %>
@@ -83,13 +120,21 @@
   </table>
 </div >
 
+</div>
+
+
+<div class="col-sm">
+
+
+
+
 <div food250>
   <h2>[250円]</h2>
  <table>
    <thead>
      <tr>
-       <th>おしなもの</th>
-       <th>写真</th>
+       <th></th>
+       <th></th>
      </tr>
    </thead>
 
@@ -120,10 +165,13 @@
   </table>
 </div >
 
+</div>
+
+</div>
+</div>
 
 <br>
 <% if current_user == nil %>
 <% elsif current_user.admin %>
   <%=link_to '新しく焼き鳥を登録する', new_food_path %>
 <% end %>
-</div>
