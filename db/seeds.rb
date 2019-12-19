@@ -53,7 +53,7 @@
 #
 #
 # SideMenu.create!(name: "焼き鳥を美味しく食べる為のカクテルサラダ",price:"500", kind:"一品料理", picture:"")
-# SideMenu.create!(name: "白レバーのタタキ", price:"500", kind:"一品料理", picture:"")
+# SideMenu.create!(name: "白レバーのタタキ", price:"550", kind:"一品料理", picture:"")
 # SideMenu.create!(name: "鳥皮ポン酢", price:"400", kind:"一品料理", picture:"")
 # SideMenu.create!(name: "とりわさ", price:"500", kind:"一品料理", picture:"")
 # SideMenu.create!(name: "枝豆ガーリック", price:"400", kind:"一品料理", picture:"")
@@ -113,3 +113,4 @@
 # Food.create!(name: "フア",price:"150", picture:"")
 # Food.create!(name: "ふくらはぎ",price:"200", picture:"")
 # Food.create!(name: "かもねぎ",price:"250", picture:"")
+# Food.create!(name: "おまかせ五本",price:"750", picture:"")
