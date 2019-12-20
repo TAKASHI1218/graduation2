@@ -1,4 +1,10 @@
-<div class="container">
+<div class="blogshowbody">
+  <div class="blogeachtitle">
+　<p1>詳細画面</p1>
+  </div>
+  <br>
+  <button type="button" class="btn btn-success rounded-pill">
+  <%= link_to '業務連絡一覧へ戻る', blogs_path %></button>
 
 
   <div class="blog-text">
@@ -7,7 +13,7 @@
 
     <p><strong>写真</strong>：
       <% if  @blog.picture.url %>
-        <%= image_tag @blog.picture.url %>
+        <%= image_tag @blog.picture.url ,:width => '400', :height => '400'  %>
       <% else %>
         <%= '写真はありません。' %>
       <% end %>
@@ -15,8 +21,8 @@
 
     <table>
       <tr>
-        <th>ご来店日</th>
-        <th>ご満足度</th>
+        <th>完了予定日</th>
+        <th>優先度</th>
 
       </tr>
       <tr>
@@ -43,9 +49,5 @@
   <%= render partial: 'comments/form', locals: { comment: @comment, blog: @blog } %>
   <% end %>
 
-  <% if current_user == nil %>
-  <% elsif current_user.id == @blog.user_id || current_user.admin %>
-  <%= link_to '編集', edit_blog_path(@blog) %>
-  <% end %>
-  <%= link_to '戻る', blogs_path %>
+
 </div>

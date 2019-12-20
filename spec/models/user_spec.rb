@@ -16,8 +16,8 @@ RSpec.describe User, type: :model do
   end
 
 
-  it "user_model_テスト3 nameは10文字までではないとエラーとなる" do
-    user = User.new(name: '12345678901', email: 't6134@yahoo.co.jp', password:'61346134', password_confirmation: '61346134')
+  it "user_model_テスト3 nameは30文字までではないとエラーとなる" do
+    user = User.new(name: '1234567890123456789012345678901', email: 't6134@yahoo.co.jp', password:'61346134', password_confirmation: '61346134')
     expect(user).not_to be_valid
   end
 

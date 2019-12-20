@@ -17,7 +17,7 @@ class SideMenusController < ApplicationController
     if @side_menu.save
       redirect_to side_menus_path, notice:"サイドメニューを作成しました！"
     else
-      render 'new'
+      render :new
     end
   end
 
@@ -43,7 +43,7 @@ class SideMenusController < ApplicationController
   private
 
   def side_menu_params
-    params.require(:side_menu).permit(:name, :picture, :picture_cache, :price, :comment)
+    params.require(:side_menu).permit(:name, :picture, :picture_cache, :price, :kind)
   end
 
   def set_side_menu

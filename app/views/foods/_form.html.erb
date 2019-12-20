@@ -20,7 +20,7 @@
     <%= form.label :picture%>
     <%= form.file_field :picture %>
     <% if @food.picture.url %>
-      <%= image_tag @food.picture.url %>
+      <%= image_tag @food.picture.url,:width => '25%', :height => '25%'  %>
     <% end %>
     <br>
 
@@ -28,10 +28,6 @@
   <div class="food_price">
     <%= form.label :price %>
     <%= form.number_field :price %>
-  </div>
-  <div class="food_comment">
-    <%= form.label :comment %>
-    <%= form.text_field :comment %>
   </div>
 
 

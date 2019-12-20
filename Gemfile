@@ -13,6 +13,10 @@ gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'
 
+gem 'jquery-rails'
+gem 'bootstrap', '~> 4.3.1'
+gem 'kaminari'
+
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

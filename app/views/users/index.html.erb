@@ -1,9 +1,10 @@
-<h1>ユーザー一覧</h1>
+<div class="usersbody">
+<h3>従業員一覧</h3>
 
 
-<table>
+<table  class="table table-hover">
   <tr>
-    <th>ユーザー名</th>
+    <th>従業員名</th>
     <th>Email</th>
     <th>管理者</th>
   </tr>
@@ -21,5 +22,6 @@
 
 
 </table>
-
-<%= link_to "ブログ一覧へ", blogs_path %>
+<button type="button" class="btn btn-success rounded-pill">
+<%= link_to "従業員管理画面へ", blogs_path %></button>
+</div>

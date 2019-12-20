@@ -1,36 +1,30 @@
-<h1>お客様からのレビュー一覧</h1>
+<div class="blog">
+  <div class='blogtitle'>
+<p1>業務連絡一覧画面</p1>
+  </div>
+
+<button type="button" class="btn btn-primary rounded-0">
+<%= link_to '優先度でソートする', blogs_path(sort_status: "true") %></button>
+
+<button type="button" class="btn btn-primary rounded-0">
+<%= link_to '完了予定期日でソートする', blogs_path(sort_visit_date: "true") %></button>
+
+<button type="button" class="btn btn-primary rounded-0">
+<%= link_to '入力された順でソートする', blogs_path(sort_created: "true") %></button>
 
 <br>
-<%= link_to 'ご満足度でソートする', blogs_path(sort_status: "true") %>
-<br>
-<%= link_to 'ご来店日でソートする', blogs_path(sort_visit_date: "true") %>
-<br>
-<%= link_to '入力された順でソートする', blogs_path(sort_created: "true") %>
 
-<br>
-<br>
-<% if current_user == nil %>
-<% elsif current_user.admin %>
-  <%= link_to 'ユーザー一覧', users_path %>
-<% end %>
-
-
-
-
-
-<table>
+<table class="table table-hover">
   <tr>
-    <th>ユーザー</th>
+    <th>従業員名</th>
     <th>タイトル</th>
-    <th>レビュー</th>
     <th>写真</th>
     <th>作成日</th>
-
-    <th>    </th>
-
-    <th>ご満足度</th>
-    <th>ご来店日</th>
-    <th></th>
+    <th>優先度</th>
+    <th>完了予定期日</th>
+    <th>詳細</th>
+    <th>編集</th>
+    <th>削除</th>
 
   </tr>
 
@@ -39,16 +33,15 @@
     <td><%= blog.user.name %></td>
 
     <td><%= blog.title %></td>
-    <td><%= blog.content %></td>
     <td><% if blog.picture.url %>
       <%=  '🐓'%>
         <% else %>
-      <%=   ''%>
+      <%=   'なし'%>
         <% end %>
     </td>
     <td><%= blog.created_at.strftime('%Y年%m月%d日')%></td>
 
-      <td>     </td>
+
 
     <td><%= blog.status %></td>
 
@@ -61,12 +54,12 @@
 
 
 
-    <td><%= link_to '詳細確認＆コメント入力', blog_path(blog.id) %></td>
+    <td><%= link_to '🐓', blog_path(blog.id) %></td>
 
     <% if current_user == nil %>
     <% elsif current_user.id == blog.user_id || current_user.admin %>
-      <td><%= link_to 'レビューを編集する', edit_blog_path(blog.id) %></td>
-      <td><%= link_to 'レビューを削除する', blog_path(blog.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>
+      <td><%= link_to '🐓', edit_blog_path(blog.id) %></td>
+      <td><%= link_to '🐓', blog_path(blog.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>
     <% end %>
 
 
@@ -74,11 +67,22 @@
 <% end %>
 </table>
 
+<button type="button" class="btn btn-primary rounded-0">
 
-
-
-
+<%= paginate @blogs %></button>
 <br>
+<br>
+
 <% if user_signed_in? %>
-  <%=link_to 'レビューを登録する', new_blog_path %>
+<button type="button" class="btn btn-danger rounded-pill">
+  <%=link_to '業務連絡を登録する', new_blog_path %></button>
 <% end %>
+
+<% if current_user == nil %>
+<% elsif current_user.admin %>
+<button type="button" class="btn btn-success rounded-pill">
+  <%= link_to '従業員一覧へ', users_path %></button>
+<% end %>
+<br>
+
+<div>

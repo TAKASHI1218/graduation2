@@ -1,57 +1,52 @@
 <!DOCTYPE html>
 <html>
   <head>
+
     <%= analytics_init if Rails.env.production? %>
     <title>toriyu</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  <header>
-      <h1>瑞江の本格炭火の焼き鳥店 『鳥勇』</h1>
 
-      <ul>
+  <header class="sticky-top">
+      <div class="toriyuu">
+        <h1>鳥勇</h1>
 
-        <%= link_to "トップページ", tops_path %>
-        <%= link_to "アクセス", maps_path %>
-        <%= link_to "お店のInstagram", "https://www.instagram.com/toriyuu_yakitori", :target=>["_blank"] %>
-        <%= link_to "お客様からのレビュー一覧", blogs_path %>
+      <div class="top-sub">
+        <button type="button" class="btn btn-light rounded-pill">
+            <%= link_to "トップページ", tops_path %></button>
+       <button type="button" class="btn btn-light rounded-pill">
+            <%= link_to "アクセス", maps_path %></button>
         <br>
-        <%= link_to "焼き鳥一覧", foods_path %>
-        <%= link_to "サイドメニュー一覧", side_menus_path %>
-        <%= link_to "ドリンク一覧", drinks_path %>
-        <%= link_to "日本酒一覧", sakes_path %>
-
+          <button type="button" class="btn btn-warning rounded-pill">
+            <%= link_to "焼き鳥", foods_path %></button>
+          <button type="button" class="btn btn-warning rounded-pill">
+            <%= link_to "一品料理", side_menus_path %></button>
+          <button type="button" class="btn btn-warning rounded-pill">
+            <%= link_to "お飲み物", drinks_path %></button>
+          <button type="button" class="btn btn-warning rounded-pill">
+            <%= link_to "日本酒", sakes_path %></button>
         <br>
+        </div>  
+      </div>
+      </header>
 
-        <p>
 
-        <% if user_signed_in? %>　　　　　
 
-        <%= current_user.name %>
-        さんがログインしています。
-        <% end %>
-        <% if current_user == nil %>
-        <% elsif current_user.admin == true %>
-          <%= '🐓' %>
-        <% end %>
-        </p>
 
-        <% if user_signed_in? %>
-          <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-        <% else %>
-         <%= link_to "ログイン", new_user_session_path %>
-         <%= link_to "新規登録", new_user_registration_path %>
-        <% end %>
-      </ul>
+
 
 
   </header>
 
   <body>
+
 
     <% if notice %>
       <p class="alert alert-notice"><%= notice %></p>
@@ -63,24 +58,58 @@
 
     <%= yield %>
 
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
   </body>
 
-  <footer>
+  <footer class = "fixed-bottom">
+
+
+
+
+
     <br>
 
 
 
 
-    <h3>住所：〒132-0013 東京都江戸川区江戸川２丁目６−２</h3>
+    <p1>住所：〒132-0013 東京都江戸川区江戸川２丁目６−２<p1>
 
-    <h4>営業時間：火曜日～日曜　18時から24時</h4>
-    <h4>定休日：月曜</h4>
+    <p1>営業時間：火曜日～日曜　18時から24時(定休日：月曜)<p1>
+    <br>
+    <p1>TEL: 03-5879-8522</p1>
+
+
+    <% if user_signed_in? %>　　　　　
+
+    <%= current_user.name %>
+    さんがログインしています。
+    <% end %>
+    <% if current_user == nil %>
+    <% elsif current_user.admin == true %>
+      <%= '🐓' %>
+    <% end %>
+
+
+    <% if user_signed_in? %>
+      <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+    <% else %>
+     <%= link_to "ログイン", new_user_session_path %>
+     <%= link_to "新規登録", new_user_registration_path %>
+    <% end %>
+
+
+
 
     <% if current_user == nil %>
     <% elsif current_user.admin %>
-      <%= link_to 'ユーザー一覧', users_path %>
-      <%= link_to '管理ページ', rails_admin_path %>
+      <%= link_to "業務連絡一覧画面", blogs_path %>
+      <%= link_to '従業員一覧', users_path %>
+      <%= link_to 'Adminぺージ', rails_admin_path %>
     <% end %>
+
 
 
 
