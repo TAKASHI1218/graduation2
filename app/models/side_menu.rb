@@ -8,3 +8,4 @@ class SideMenu < ApplicationRecord
             only_integer: true, greater_than_or_equal_to: 0}
   enum kind:{一品料理: 0,〆もの: 1,その他: 2}, _suffix: true
 end
+ 

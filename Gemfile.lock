@@ -369,6 +369,7 @@ DEPENDENCIES
   google-analytics-rails
   jbuilder (~> 2.5)
   jquery-rails
+  kaminari
   launchy
   letter_opener_web
   listen (>= 3.0.5, < 3.2)

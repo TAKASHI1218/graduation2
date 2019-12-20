@@ -7,6 +7,13 @@
       <p2>京都坂ノ途中監修の無農薬オーガニック野菜など、焼き鳥の合間に一品料理も是非お楽しみください。</p2>
   </div>
 
+  <% if current_user == nil %>
+  <% elsif current_user.admin %>
+    <%=link_to '新しく一品料理を登録する', new_side_menu_path %>
+  <% end %>
+
+
+
   <br>
 
 
@@ -29,32 +36,32 @@
             <td><%= side_menu.price %></td>
             <td>
             <% if side_menu.picture && side_menu.picture.url %>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter-<%= side_menu.id %>">
+                <button type="button" class="btn btn-link" data-toggle="modal" data-target="#exampleModalCenter-<%= side_menu.id %>">
               <%= '🐓' %>
             <% else %>
-              <%= '×'%>
+              <%= '　'%>
             <% end %>
               </button>
-                <div class="modal fade" id="exampleModalCenter-<%= side_menu.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle-<%= side_menu.id %>" aria-hidden="true">
-                  <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <p5 class="modal-title" id="exampleModalCenterTitle-<%= side_menu.id %>"><%= side_menu.name %></p5>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                      </div>
-                        <div class="modal-body">
-                          <div class="modalpicture">
-                            <p><%= image_tag "#{side_menu.picture.url}",:width => '400', :height => '400' %></p>
-                          </div>
+              <div class="modal fade" id="exampleModalCenter-<%= side_menu.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle-<%= side_menu.id %>" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <p5 class="modal-title" id="exampleModalCenterTitle-<%= side_menu.id %>"><%= side_menu.name %></p5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                      <div class="modal-body">
+                        <div class="modalpicture">
+                          <p><%= image_tag "#{side_menu.picture.url}",:width => '50%', :height => '50%' %></p>
                         </div>
-                      <div class="modal-footer">
-                        <h5><%= side_menu.price %>円</h5>
                       </div>
+                    <div class="modal-footer">
+                      <h5><%= side_menu.price %>円</h5>
                     </div>
                   </div>
                 </div>
+              </div>
               </td>
                 <% if current_user == nil %>
                 <% elsif current_user.admin %>
@@ -86,32 +93,33 @@
             <td><%= side_menu.price %></td>
             <td>
             <% if side_menu.picture && side_menu.picture.url %>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter-<%= side_menu.id %>">
+                <button type="button" class="btn btn-link" data-toggle="modal" data-target="#exampleModalCenter-<%= side_menu.id %>">
               <%= '🐓' %>
             <% else %>
-              <%= '×'%>
+              <%= '　'%>
             <% end %>
               </button>
-                <div class="modal fade" id="exampleModalCenter-<%= side_menu.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle-<%= side_menu.id %>" aria-hidden="true">
-                  <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <p5 class="modal-title" id="exampleModalCenterTitle-<%= side_menu.id %>"><%= side_menu.name %></p5>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                      </div>
-                        <div class="modal-body">
-                          <div class="modalpicture">
-                            <p><%= image_tag "#{side_menu.picture.url}",:width => '400', :height => '400' %></p>
-                          </div>
+              <div class="modal fade" id="exampleModalCenter-<%= side_menu.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle-<%= side_menu.id %>" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered
+                " role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <p5 class="modal-title" id="exampleModalCenterTitle-<%= side_menu.id %>"><%= side_menu.name %></p5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                      <div class="modal-body">
+                        <div class="modalpicture">
+                          <p><%= image_tag "#{side_menu.picture.url}",:width => '50%', :height => '50%' %></p>
                         </div>
-                      <div class="modal-footer">
-                        <h5><%= side_menu.price %>円</h5>
                       </div>
+                    <div class="modal-footer">
+                      <h5><%= side_menu.price %>円</h5>
                     </div>
                   </div>
                 </div>
+              </div>
               </td>
                 <% if current_user == nil %>
                 <% elsif current_user.admin %>
@@ -131,8 +139,5 @@
 </div>
 
 <br>
-<% if current_user == nil %>
-<% elsif current_user.admin %>
-  <%=link_to '新しく一品料理を登録する', new_side_menu_path %>
-<% end %>
+
 </div>

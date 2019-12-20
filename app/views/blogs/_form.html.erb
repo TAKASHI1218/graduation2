@@ -35,7 +35,7 @@
   <div class="blog_picture">
     <%= form.label :picture %>
     <% if @blog.picture.url %>
-      <%= image_tag @blog.picture.url %>
+      <%= image_tag @blog.picture.url ,:width => '400', :height => '400' %>
     <% end %>
     <br>
     <%= form.file_field :picture %>
@@ -46,5 +46,3 @@
 
   <%= form.submit %>
 <% end %>
-
-<%= link_to "業務連絡一覧", blogs_path %>

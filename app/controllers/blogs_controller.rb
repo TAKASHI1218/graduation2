@@ -1,19 +1,22 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy]
 
+
+  PER = 4
+
   def index
-    @blogs = Blog.all.order("created_at DESC")
+    @blogs = Blog.all.order("created_at DESC").page(params[:page]).per(PER)
 
     if params[:sort_created]
-      @blogs = Blog.all.order("created_at DESC")
+      @blogs = Blog.all.order("created_at DESC").page(params[:page]).per(PER)
     end
 
     if params[:sort_status]
-      @blogs = Blog.all.order("status ASC")
+      @blogs = Blog.all.order("status ASC").page(params[:page]).per(PER)
     end
 
     if params[:sort_visit_date]
-      @blogs = Blog.all.order("visit_date ASC")
+      @blogs = Blog.all.order("visit_date ASC").page(params[:page]).per(PER)
     end
   end
 

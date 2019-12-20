@@ -17,20 +17,29 @@
  */
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 header{
-  height: 60px;
-  font-family: Ryumin Ultra KL;
+  height: 80px;
 
 }
+
 .toriyuu{
-  text-align: center;
-  padding-top: 10px;
-  font-size: 500px;
+  // text-align: center;
+  // padding-top: 20px;
+  display: flex;
+  justify-content: center; /* 子要素を中央揃え */
+  position: relative;
+  color: white;
+  // text-align: left;
+  text-decoration-style: solid;
 }
 
 
 .top-sub{
+  // text-align: right;
+  // padding-right: 10px;
+  float: right;
+  right: 0; /* 右寄せ */
   text-align: right;
-  padding-right: 30px;
+  position: absolute;
 }
 
 
@@ -76,18 +85,24 @@ text-decoration:underline;
  }
 
  .ordertype{
-   text-align: center;
-   padding-top: 10px;
+   text-align: left;
+   padding-left: 30px;
+   padding-top: 30px;
    font-size: 50px;
    font-family: inherit;
+
+   // background:
+   //      rgba(0, 0, 0, 0.6);
 
  }
 
  .order-title {
    text-align: left;
-   margin-left: 15px;
+   // margin-left: 15px;
    padding-top: 10px;
-   font-size: 20px !important;
+   font-size: 20px;
+   background:
+        rgba(0, 0, 0, 0.6);
    // background:
    //   repeating-radial-gradient(
    //     circle at -1000% 0%,
@@ -166,7 +181,7 @@ text-decoration:underline;
    background-size: cover;
    height:100%;
    scroll-snap-type: y;
-   height: 250vh;
+   height: 400vh;
  }
 
 .side_menubody{
@@ -175,7 +190,7 @@ text-decoration:underline;
   background-attachment: fixed;
   background-size: 100% 100%;
   scroll-snap-type: y;
-  min-height: 200vh;
+  min-height: 300vh;
 }
 
 .side_menukind0{
@@ -201,13 +216,13 @@ text-decoration:underline;
 }
 
 .drinkbody{
-  background: url(./sake-background.jpg) no-repeat;
+  background: url(./drink-background.jpg) no-repeat;
   background-position: center center;
   background-attachment: fixed;
   background-size: cover;
   height:100%;
   scroll-snap-type: y;
-  height: 200vh;
+  height: 280vh;
 }
 
 
@@ -250,11 +265,9 @@ text-decoration:underline;
      color: white;
      font-size: 25px;
      background:
-          rgba(0, 0, 0, 0.2);
+          rgba(0, 0, 0, 0.6);
      margin: 10px;
      padding-bottom: 25px;
-
-
  }
 
 
@@ -267,7 +280,7 @@ text-decoration:underline;
 
 .blogtitle{
   padding-top:10px;
-  font-size: 50px;
+  font-size: 30px;
 }
 
 
@@ -295,7 +308,7 @@ text-decoration:underline;
 
  .modal-title{
    color: black;
-   font-size: 50px;
+   font-size: 30px;
  }
  .modal-body {
             background: black;
@@ -310,5 +323,43 @@ text-decoration:underline;
  }
 
  ul{
-   margin-bottom: 0;
+  //  margin-bottom: 0;
+  // text-align: right;
  }
+
+.usersbody{
+  color: black;
+}
+
+.signupbody{
+  color: black;
+}
+.loginbody{
+  color: black;
+}
+
+.blogeditbody{
+  color: black;
+  height:100%;
+  scroll-snap-type: y;
+  height: 300vh;
+}
+
+.blogshowbody{
+  color: black;
+  height:100%;
+  scroll-snap-type: y;
+  height: 150vh;
+}
+
+.blognewbody{
+  color: black;
+}
+.menuediter{
+  color: black;
+}
+
+.blogeachtitle{
+  font-size: 30px;
+  padding-top: 20px;
+}

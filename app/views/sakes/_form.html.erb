@@ -30,6 +30,11 @@
     <%= form.number_field :price %>
   </div>
 
+  <div class="sake_kind">
+    <%= form.label :kind %>
+    <%= form.select :kind, Sake.kinds.keys.to_a, {} %>
+  </div>
+
 
   <%= form.submit %>
 <% end %>

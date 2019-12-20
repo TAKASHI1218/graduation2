@@ -1,5 +1,3 @@
-
-
 <div class="drinkbody">
 <div class="container">
   <div class="ordertype">
@@ -9,6 +7,11 @@
       <p2>当店ではお酒にこだわる店主がこだわりのハイボールも仕入れております。
       是非こちらもお楽しみください。</p2>
   </div>
+
+  <% if current_user == nil %>
+  <% elsif current_user.admin %>
+    <%= link_to '新しくドリンクを登録する', new_drink_path %>
+  <% end %>
 
   <br>
 
@@ -46,66 +49,6 @@
       <div drinkkind1>
         <table>
           <thead>
-           <tr>　
-             <th height="100"><h2>［ウイスキー・ハイボール］</h2></th>
-             <th height="100">お値段</th>
-           </tr>
-          </thead>
-        <tbody>
-          <% @drinks.each do |drink| %>
-            <% if drink.kind == 'ウイスキー、ハイボール' %>
-          <tr>
-           <td><%= drink.name %></td>
-           <td><%= drink.price %></td>
-              <% if current_user == nil %>
-              <% elsif current_user.admin %>
-                <td><%= link_to "ドリンクを編集する", edit_drink_path(drink.id), data: { confirm: '本当に編集していいですか？' } %></td>
-                <td><%= link_to 'ドリンクを削除する', drink_path(drink.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>
-              <% end %>
-          </tr>
-            <% end %>
-          <% end %>
-        </tbody>
-        </table>
-      </div>
-    </div>
-
-    <div class="w-100"></div>
-
-    <div class="col">
-     <div drinkkind2>
-       <table>
-         <thead>
-          <tr>　
-            <th height="100"><h2>［ウイスキー・ハイボール］</h2></th>
-            <th height="100">お値段</th>
-          </tr>
-         </thead>
-       <tbody>
-         <% @drinks.each do |drink| %>
-           <% if drink.kind == 'ウイスキー、ハイボール' %>
-         <tr>
-          <td><%= drink.name %></td>
-          <td><%= drink.price %></td>
-             <% if current_user == nil %>
-             <% elsif current_user.admin %>
-               <td><%= link_to "ドリンクを編集する", edit_drink_path(drink.id), data: { confirm: '本当に編集していいですか？' } %></td>
-               <td><%= link_to 'ドリンクを削除する', drink_path(drink.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>
-             <% end %>
-         </tr>
-           <% end %>
-         <% end %>
-       </tbody>
-       </table>
-     </div>
-    </div>
-
-    <br>
-
-    <div class="col">
-      <div drinkkind3>
-        <table>
-          <thead>
             <tr>　
               <th height="100"><h2>［サワー・お茶ハイ］</h2></th>
               <th height="100">お値段</th>
@@ -131,12 +74,76 @@
     </div>
 
 
+
+
+
+    <div class="w-100"></div>
+
+
+
+    <div class="col">
+      <div drinkkind2>
+        <table>
+          <thead>
+           <tr>　
+             <th height="100"><h2>［ウイスキー・ハイボール］</h2></th>
+             <th height="100">お値段</th>
+           </tr>
+          </thead>
+        <tbody>
+          <% @drinks.each do |drink| %>
+            <% if drink.kind == 'ウイスキー、ハイボール' %>
+          <tr>
+           <td><%= drink.name %></td>
+           <td><%= drink.price %></td>
+              <% if current_user == nil %>
+              <% elsif current_user.admin %>
+                <td><%= link_to "ドリンクを編集する", edit_drink_path(drink.id), data: { confirm: '本当に編集していいですか？' } %></td>
+                <td><%= link_to 'ドリンクを削除する', drink_path(drink.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>
+              <% end %>
+          </tr>
+            <% end %>
+          <% end %>
+        </tbody>
+        </table>
+      </div>
+    </div>
+
+
+
+    <div class="col">
+     <div drinkkind3>
+       <table>
+         <thead>
+          <tr>　
+            <th height="100"><h2>［プレミアム焼酎ハイボール］</h2></th>
+            <th height="100">お値段</th>
+          </tr>
+         </thead>
+       <tbody>
+         <% @drinks.each do |drink| %>
+           <% if drink.kind == 'プレミアム焼酎ハイボール' %>
+         <tr>
+          <td><%= drink.name %></td>
+          <td><%= drink.price %></td>
+             <% if current_user == nil %>
+             <% elsif current_user.admin %>
+               <td><%= link_to "ドリンクを編集する", edit_drink_path(drink.id), data: { confirm: '本当に編集していいですか？' } %></td>
+               <td><%= link_to 'ドリンクを削除する', drink_path(drink.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>
+             <% end %>
+         </tr>
+           <% end %>
+         <% end %>
+       </tbody>
+       </table>
+     </div>
+    </div>
+
+    <br>
+
+
+
 <br>
 
 </div>
 </div>
-
-<% if current_user == nil %>
-<% elsif current_user.admin %>
-  <%= link_to '新しくドリンクを登録する', new_drink_path %>
-<% end %>

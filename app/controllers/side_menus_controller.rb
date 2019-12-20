@@ -17,7 +17,7 @@ class SideMenusController < ApplicationController
     if @side_menu.save
       redirect_to side_menus_path, notice:"サイドメニューを作成しました！"
     else
-      render 'new'
+      render :new
     end
   end
 

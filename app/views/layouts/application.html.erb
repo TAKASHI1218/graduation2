@@ -14,10 +14,28 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <header  class="sticky-top">
+  <header class="sticky-top">
       <div class="toriyuu">
         <h1>鳥勇</h1>
+
+      <div class="top-sub">
+        <button type="button" class="btn btn-light rounded-pill">
+            <%= link_to "トップページ", tops_path %></button>
+       <button type="button" class="btn btn-light rounded-pill">
+            <%= link_to "アクセス", maps_path %></button>
+        <br>
+          <button type="button" class="btn btn-warning rounded-pill">
+            <%= link_to "焼き鳥", foods_path %></button>
+          <button type="button" class="btn btn-warning rounded-pill">
+            <%= link_to "一品料理", side_menus_path %></button>
+          <button type="button" class="btn btn-warning rounded-pill">
+            <%= link_to "お飲み物", drinks_path %></button>
+          <button type="button" class="btn btn-warning rounded-pill">
+            <%= link_to "日本酒", sakes_path %></button>
+        <br>
+        </div>  
       </div>
+      </header>
 
 
 
@@ -60,6 +78,8 @@
     <p1>住所：〒132-0013 東京都江戸川区江戸川２丁目６−２<p1>
 
     <p1>営業時間：火曜日～日曜　18時から24時(定休日：月曜)<p1>
+    <br>
+    <p1>TEL: 03-5879-8522</p1>
 
 
     <% if user_signed_in? %>　　　　　
@@ -85,23 +105,11 @@
 
     <% if current_user == nil %>
     <% elsif current_user.admin %>
-      <%= link_to "従業員管理画面", blogs_path %>
+      <%= link_to "業務連絡一覧画面", blogs_path %>
       <%= link_to '従業員一覧', users_path %>
       <%= link_to 'Adminぺージ', rails_admin_path %>
     <% end %>
 
-    <ul class="top-sub">
-          <%= link_to "トップページ", tops_path %>
-          <%= link_to "アクセス", maps_path %>
-          <%= link_to "Instagram", "https://www.instagram.com/toriyuu_yakitori", :target=>["_blank"] %>
-      <br>
-          <%= link_to "焼き鳥", foods_path %>
-          <%= link_to "一品料理", side_menus_path %>
-          <%= link_to "お飲み物", drinks_path %>
-          <%= link_to "日本酒", sakes_path %>
-      <br>
-
-    </ul>
 
 
 
