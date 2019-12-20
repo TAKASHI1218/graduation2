@@ -6,10 +6,10 @@
   <div class="order-title" >
       <p2>店主がこだわりの日本酒を季節に合わせ厳選したものを仕入れており、
       純米酒、純米吟醸、純米大吟醸、熟清酒など幅広くご提供させて頂いております。
-      ワイングラスで\600～\800よりご提供させて頂いております。</p2>
+      ワイングラスで600円～800円よりご提供させて頂いております。</p2>
   </div>
   <% if current_user == nil %>
-  <% elsif current_user.admin %>
+  <% elsif %>
     <%= link_to '新しく日本酒を登録する', new_sake_path %>
   <% end %>
 
@@ -53,7 +53,6 @@
                          </div>
                        </div>
                      <div class="modal-footer">
-                       <h5><%= sake.price %>円</h5>
                      </div>
                    </div>
                  </div>
@@ -62,7 +61,7 @@
 
            <td><%= sake.price %></td>
               <% if current_user == nil %>
-              <% elsif current_user.admin %>
+              <% elsif %>
                 <td><%= link_to "日本酒を編集する", edit_sake_path(sake.id), data: { confirm: '本当に編集していいですか？' } %></td>
                 <td><%= link_to '日本酒を削除する', sake_path(sake.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>
               <% end %>
@@ -111,7 +110,6 @@
                             </div>
                           </div>
                         <div class="modal-footer">
-                          <h5><%= sake.price %>円</h5>
                         </div>
                       </div>
                     </div>
@@ -119,7 +117,7 @@
                </td>
 
               <% if current_user == nil %>
-              <% elsif current_user.admin %>
+              <% elsif %>
               <td><%= link_to "日本酒を編集する", edit_sake_path(sake.id), data: { confirm: '本当に編集していいですか？' } %></td>
               <td><%= link_to '日本酒を削除する', sake_path(sake.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>
               <% end %>
@@ -175,7 +173,6 @@
                          </div>
                        </div>
                      <div class="modal-footer">
-                       <h5><%= sake.price %>円</h5>
                      </div>
                    </div>
                  </div>
@@ -184,7 +181,7 @@
 
            <td><%= sake.price %></td>
               <% if current_user == nil %>
-              <% elsif current_user.admin %>
+              <% elsif %>
                 <td><%= link_to "日本酒を編集する", edit_sake_path(sake.id), data: { confirm: '本当に編集していいですか？' } %></td>
                 <td><%= link_to '日本酒を削除する', sake_path(sake.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>
               <% end %>
@@ -235,7 +232,6 @@
                         </div>
                       </div>
                     <div class="modal-footer">
-                      <h5><%= sake.price %>円</h5>
                     </div>
                   </div>
                 </div>
@@ -244,7 +240,7 @@
 
           <td><%= sake.price %></td>
              <% if current_user == nil %>
-             <% elsif current_user.admin %>
+             <% elsif %>
                <td><%= link_to "日本酒を編集する", edit_sake_path(sake.id), data: { confirm: '本当に編集していいですか？' } %></td>
                <td><%= link_to '日本酒を削除する', sake_path(sake.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>
              <% end %>

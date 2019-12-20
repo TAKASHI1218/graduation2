@@ -12,7 +12,7 @@
   </div>
 
   <% if current_user == nil %>
-  <% elsif current_user.admin %>
+  <% elsif %>
     <%=link_to '新しく焼き鳥を登録する', new_food_path %>
   <% end %>
 
@@ -63,7 +63,7 @@
                   </div>
                </td>
                 <% if current_user == nil %>
-                <% elsif current_user.admin %>
+                <% elsif %>
               <td><%= link_to '焼き鳥を編集する', edit_food_path(food.id), data: { confirm: '本当に編集していいですか？' } %></td>
               <td><%= link_to '焼き鳥を削除する', food_path(food.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>
                 <% end %>
@@ -117,7 +117,7 @@
                   </div>
                 </div>
                 <% if current_user == nil %>
-                <% elsif current_user.admin %>
+                <% elsif %>
               <td><%= link_to '焼き鳥を編集する', edit_food_path(food.id), data: { confirm: '本当に編集していいですか？' } %></td>
               <td><%= link_to '焼き鳥を削除する', food_path(food.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>
                 <% end %>
@@ -171,7 +171,7 @@
                     </div>
                   </div>
                 <% if current_user == nil %>
-                <% elsif current_user.admin %>
+                <% elsif  %>
               <td><%= link_to '焼き鳥を編集する', edit_food_path(food.id), data: { confirm: '本当に編集していいですか？' } %></td>
               <td><%= link_to '焼き鳥を削除する', food_path(food.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>
                 <% end %>
@@ -225,7 +225,7 @@
                   </div>
                 </div>
                 <% if current_user == nil %>
-                <% elsif current_user.admin %>
+                <% elsif %>
               <td><%= link_to '焼き鳥を編集する', edit_food_path(food.id), data: { confirm: '本当に編集していいですか？' } %></td>
               <td><%= link_to '焼き鳥を削除する', food_path(food.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>
                 <% end %>
