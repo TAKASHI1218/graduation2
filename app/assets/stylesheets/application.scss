@@ -354,6 +354,8 @@ text-decoration:underline;
 
 .blognewbody{
   color: black;
+  scroll-snap-type: y;
+  height: 150vh;
 }
 .menuediter{
   color: black;
@@ -362,4 +364,9 @@ text-decoration:underline;
 .blogeachtitle{
   font-size: 30px;
   padding-top: 20px;
+}
+
+.alert{ 
+ color: black;
+ font-size: 30px;
 }

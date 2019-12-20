@@ -1,12 +1,20 @@
 ja:
   activerecord:
     models:
-      blog: "ブログ"
+      blog: "業務連絡"
       user: "ユーザー"
+      food: "焼き鳥"
+      side_menu: "一品料理"
+      drink: "お飲み物"
+      sake: "日本酒"
+      comment: "コメント"
     attributes:
       blog:
         title: "タイトル"
         content: "内容"
+        picture: "写真"
+        visit_date: "完了予定期日"
+        status: "優先度"
       contact:
         name: "名前"
         email: "メールアドレス"
@@ -20,3 +28,23 @@ ja:
         password: "パスワード"
         password_confirmation: "確認用パスワード"
         remember_me: "ログインを記憶"
+      food:
+        name: "名前"
+        picture: "写真"
+        price: "値段"
+      side_menu:
+        name: "名前"
+        picture: "写真"
+        price: "値段"
+        kind: "種類"
+      drink:
+        name: "名前"
+        price: "値段"
+        kind: "種類"
+      sake:
+        name: "名前"
+        picture: "写真"
+        price: "値段"
+        kind: "種類"
+      comment:
+        content: "内容"
