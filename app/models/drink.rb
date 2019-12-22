@@ -5,5 +5,6 @@ class Drink < ApplicationRecord
   validates :price, presence: true
   validates :price, numericality: {
             only_integer: true, greater_than_or_equal_to: 0}
-  enum kind:{ドリンク: 0,ウイスキー、ハイボール: 1,プレミアム焼酎ハイボール: 2,サワー、お茶ハイ: 3, その他: 4}, _suffix: true
+  validates :kind, presence: true
+  enum kind:{ドリンク: 0,ウイスキー、ハイボール: 1,プレミアム焼酎ハイボール: 2,サワー、お茶ハイ: 3}, _suffix: true
 end

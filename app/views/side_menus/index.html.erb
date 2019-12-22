@@ -9,7 +9,8 @@
 
   <% if current_user == nil %>
   <% elsif %>
-    <%=link_to '新しく一品料理を登録する', new_side_menu_path %>
+    <button type="button" class="btn btn-danger rounded-pill">
+    <%=link_to '新しく一品料理を登録する', new_side_menu_path %></button>
   <% end %>
 
 
@@ -65,8 +66,12 @@
               </td>
                 <% if current_user == nil %>
                 <% elsif %>
-                  <td><%= link_to '一品料理を編集する', edit_side_menu_path(side_menu.id), data: { confirm: '本当に編集していいですか？' } %></td>
-                  <td><%= link_to '一品料理を削除する', side_menu_path(side_menu.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>
+                  <td>
+                    <button type="button" class="btn btn-warning rounded-pill">
+                    <%= link_to '編集', edit_side_menu_path(side_menu.id), data: { confirm: '本当に編集していいですか？' } %></button></td>
+                  <td>
+                    <button type="button" class="btn btn-secondary rounded-pill">
+                    <%= link_to '削除', side_menu_path(side_menu.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></button></td>
                 <% end %>
           </tr>
         　  <% end %>
@@ -123,8 +128,12 @@
               </td>
                 <% if current_user == nil %>
                 <% elsif %>
-                  <td><%= link_to '一品料理を編集する', edit_side_menu_path(side_menu.id), data: { confirm: '本当に編集していいですか？' } %></td>
-                  <td><%= link_to '一品料理を削除する', side_menu_path(side_menu.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>
+                  <td>
+                    <button type="button" class="btn btn-warning rounded-pill">
+                    <%= link_to '編集', edit_side_menu_path(side_menu.id), data: { confirm: '本当に編集していいですか？' } %></button></td>
+                  <td>
+                    <button type="button" class="btn btn-secondary rounded-pill">
+                    <%= link_to '削除', side_menu_path(side_menu.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></button></td>
                 <% end %>
           </tr>
         　  <% end %>

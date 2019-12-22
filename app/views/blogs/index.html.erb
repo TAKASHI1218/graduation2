@@ -10,7 +10,21 @@
 <%= link_to '完了予定期日でソートする', blogs_path(sort_visit_date: "true") %></button>
 
 <button type="button" class="btn btn-primary rounded-0">
-<%= link_to '入力された順でソートする', blogs_path(sort_created: "true") %></button>
+<%= link_to '最新順でソートする', blogs_path(sort_created: "true") %></button>
+
+<% if user_signed_in? %>
+<button type="button" class="btn btn-danger rounded-pill">
+  <%=link_to '業務連絡を登録する', new_blog_path %></button>
+<% end %>
+
+<% if current_user == nil %>
+<% elsif current_user.admin %>
+<button type="button" class="btn btn-success rounded-pill">
+  <%= link_to '従業員一覧へ', users_path %></button>
+<% end %>
+
+<button type="button" class="btn btn-secondary rounded-0">
+<%= paginate @blogs %></button>
 
 <br>
 
@@ -22,9 +36,8 @@
     <th>作成日</th>
     <th>優先度</th>
     <th>完了予定期日</th>
-    <th>詳細</th>
-    <th>編集</th>
-    <th>削除</th>
+    <th colspan="3"></th>
+
 
   </tr>
 
@@ -54,35 +67,18 @@
 
 
 
-    <td><%= link_to '🐓', blog_path(blog.id) %></td>
+    <td>
+      <button type="button" class="btn btn-info rounded-pill"><%= link_to '詳細', blog_path(blog.id) %></button></td>
 
     <% if current_user == nil %>
     <% elsif current_user.id == blog.user_id || current_user.admin %>
-      <td><%= link_to '🐓', edit_blog_path(blog.id) %></td>
-      <td><%= link_to '🐓', blog_path(blog.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>
+      <td><button type="button" class="btn btn-warning rounded-pill">
+        <%= link_to '編集', edit_blog_path(blog.id) %></button></td>
+      <td><button type="button" class="btn btn-secondary rounded-pill">
+        <%= link_to '削除', blog_path(blog.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></button></td>
     <% end %>
 
 
   </tr>
 <% end %>
 </table>
-
-<button type="button" class="btn btn-primary rounded-0">
-
-<%= paginate @blogs %></button>
-<br>
-<br>
-
-<% if user_signed_in? %>
-<button type="button" class="btn btn-danger rounded-pill">
-  <%=link_to '業務連絡を登録する', new_blog_path %></button>
-<% end %>
-
-<% if current_user == nil %>
-<% elsif current_user.admin %>
-<button type="button" class="btn btn-success rounded-pill">
-  <%= link_to '従業員一覧へ', users_path %></button>
-<% end %>
-<br>
-
-<div>

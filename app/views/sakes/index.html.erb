@@ -10,7 +10,8 @@
   </div>
   <% if current_user == nil %>
   <% elsif %>
-    <%= link_to '新しく日本酒を登録する', new_sake_path %>
+    <button type="button" class="btn btn-danger rounded-pill">
+    <%= link_to '新しく日本酒を登録する', new_sake_path %></button>
   <% end %>
 
   <br>
@@ -62,8 +63,12 @@
            <td><%= sake.price %></td>
               <% if current_user == nil %>
               <% elsif %>
-                <td><%= link_to "日本酒を編集する", edit_sake_path(sake.id), data: { confirm: '本当に編集していいですか？' } %></td>
-                <td><%= link_to '日本酒を削除する', sake_path(sake.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>
+                <td>
+                  <button type="button" class="btn btn-warning rounded-pill">
+                  <%= link_to "編集", edit_sake_path(sake.id), data: { confirm: '本当に編集していいですか？' } %></button></td>
+                <td>
+                  <button type="button" class="btn btn-secondary rounded-pill">
+                  <%= link_to '削除', sake_path(sake.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></button></td>
               <% end %>
           </tr>
             <% end %>
@@ -118,8 +123,12 @@
 
               <% if current_user == nil %>
               <% elsif %>
-              <td><%= link_to "日本酒を編集する", edit_sake_path(sake.id), data: { confirm: '本当に編集していいですか？' } %></td>
-              <td><%= link_to '日本酒を削除する', sake_path(sake.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>
+              <td>
+                <button type="button" class="btn btn-warning rounded-pill">
+                <%= link_to "編集", edit_sake_path(sake.id), data: { confirm: '本当に編集していいですか？' } %></button></td>
+              <td>
+                <button type="button" class="btn btn-secondary rounded-pill">
+                <%= link_to '削除', sake_path(sake.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></button></td>
               <% end %>
             </tr>
             <% end %>
@@ -182,8 +191,12 @@
            <td><%= sake.price %></td>
               <% if current_user == nil %>
               <% elsif %>
-                <td><%= link_to "日本酒を編集する", edit_sake_path(sake.id), data: { confirm: '本当に編集していいですか？' } %></td>
-                <td><%= link_to '日本酒を削除する', sake_path(sake.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>
+                <td>
+                  <button type="button" class="btn btn-warning rounded-pill">
+                  <%= link_to "編集", edit_sake_path(sake.id), data: { confirm: '本当に編集していいですか？' } %></button></td>
+                <td>
+                  <button type="button" class="btn btn-secondary rounded-pill">
+                  <%= link_to '削除', sake_path(sake.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></button></td>
               <% end %>
           </tr>　
             <% end %>
@@ -241,8 +254,12 @@
           <td><%= sake.price %></td>
              <% if current_user == nil %>
              <% elsif %>
-               <td><%= link_to "日本酒を編集する", edit_sake_path(sake.id), data: { confirm: '本当に編集していいですか？' } %></td>
-               <td><%= link_to '日本酒を削除する', sake_path(sake.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>
+               <td>
+                 <button type="button" class="btn btn-warning rounded-pill">
+                 <%= link_to "編集", edit_sake_path(sake.id), data: { confirm: '本当に編集していいですか？' } %></button></td>
+               <td>
+                 <button type="button" class="btn btn-secondary rounded-pill">
+                 <%= link_to '削除', sake_path(sake.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></button></td>
              <% end %>
          </tr>
            <% end %>

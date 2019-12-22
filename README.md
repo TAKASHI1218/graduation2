@@ -3,9 +3,8 @@
 ## 概要
 当該焼き鳥店のホームページを作成を一層の集客を目指す。
 
-Railsで作成されたホームページにより管理者であればだれでも簡単にメニューの変更や登録をできるようにする
+Railsで作成されたホームページにより管理者であればだれでも簡単にメニューの変更や登録をできるようにする（写真の投稿も可能）
 
-。
 
 ## コンセプト
 
@@ -15,9 +14,15 @@ Railsで作成されたホームページにより管理者であればだれで
 
 このホームページを通してお客様に店主のこだわりの日本酒を知ってもらうことが実現できる。
 
+(日本酒の値段は設定していないが概念は持たせています。)
+
 仕入れが流動的であるので日本酒自体のメニューはお店には置いていないのでこのホームページを通しその情報を提供できるようにする。
 
-お客様のレビューページを作成し人気のメニューやお店のよいところをお客様に知ってもらう。
+他、焼き鳥、一品料理、ドリンクのページ、アクセスページもある。
+
+（seedの写真はあったりなかったりしているがこれはオーナーからまだ写真を受け取っていないためです。上記の概要通り後からでも写真投稿はできます。）
+
+従業員の業務連絡表がついている。
 
 ## バージョン情報
 Ruby 2.6.3
@@ -26,19 +31,19 @@ Rails 5.2.3
 - 投稿機能
   - ユーザー登録機能
     - メールアドレス、名前、パスワードは必須
-    - ユーザー一覧をみることができる
+    - ユーザー一覧（従業員一覧）をみることができる
   - ログイン機能
     - メールアドレス、パスワードでログインできる
-  - ブログ投稿機能
-    - コンテンツの一覧を表示できる
+  - 業務連絡機能
+    - 業務連絡の一覧を表示できる
     - 画像、テキストが投稿できる
     - 本人のみコンテンツの削除、編集ができる
-    - adminユーザーのみ全ての投稿を編集可能
+    - adminユーザーのみ全ての投稿を編集可能。他adminpageにて作業ができる。
 
 
 - メニュー(food, side_menu, drink, sake)アップデート機能
- - adminユーザーのみメニューを新規登録、アップデートできる。
-   - グランドメニューはseedで設定
+ - どのユーザー（従業員でも）メニューを新規登録、アップデートできる。
+ - グランドメニューはseedで設定
 
 # カタログ設計
 https://docs.google.com/spreadsheets/d/18qd-0vUnFeM5WgNzt2b_GqC_XZb-4lGKGsk33CJS8zM/edit?userstoinvite=gum5588%40gmail.com&ts=5ddb6148&actionButton=1#gid=1973705985
@@ -62,17 +67,26 @@ https://docs.google.com/spreadsheets/d/18qd-0vUnFeM5WgNzt2b_GqC_XZb-4lGKGsk33CJS
   - carrierwave
   - mini_magic
   - S3
+  - dotenv-rails
+  - fog-aws
 
+- ログイン機能
+  - devise
+  - rails_admin
+  - cancancan
+  - omniauth
+  - omniauth-google-oauth2
+  - omniauth-facebook
 
 - CSSフレームワーク
-  - bulma-rails
-
+  - bootstrap4
+  - jquery-rails
+  - kaminari
 
 - デバッグ
   - better_errors
   - binding_of_caller
   - pry-rails
-
 
 - テスト
   - rspec-rails
@@ -81,13 +95,12 @@ https://docs.google.com/spreadsheets/d/18qd-0vUnFeM5WgNzt2b_GqC_XZb-4lGKGsk33CJS
   - capybara
   - selenium-webdriver
 
-
 - 辞書機能
   - i18n
 
 
 
-  # *AWSにてアップロード
+  <!-- # *AWSにてアップロード
 - AWS用Gem
   - fog aws
   - dotenv-rails
@@ -97,4 +110,4 @@ https://docs.google.com/spreadsheets/d/18qd-0vUnFeM5WgNzt2b_GqC_XZb-4lGKGsk33CJS
   - capistrano-bundler
   - capistrano-rails
   - capistrano-rbenv
-  - capistrano3-unicorn
+  - capistrano3-unicorn -->
