@@ -41,7 +41,7 @@ class SakesController < ApplicationController
   private
 
   def sake_params
-    params.require(:sake).permit(:name, :picture, :picture_cache, :price, :comment)
+    params.require(:sake).permit(:name, :picture, :picture_cache, :price, :comment, :kind)
   end
 
   def set_sake

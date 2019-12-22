@@ -13,7 +13,8 @@
 
   <% if current_user == nil %>
   <% elsif %>
-    <%=link_to '新しく焼き鳥を登録する', new_food_path %>
+    <button type="button" class="btn btn-danger rounded-pill">
+    <%=link_to '新しく焼き鳥を登録する', new_food_path %></button>
   <% end %>
 
   <br>
@@ -31,7 +32,6 @@
             <% @foods.each do |food| %>
               <% if food.price == 150 %>
             <tr>
-
               <td><%= food.name %></td>
               <td>
                 <% if food.picture && food.picture.url %>
@@ -41,31 +41,34 @@
                   <%= '　'%>
                 <% end %>
                   </button>
-                  <div class="modal fade" id="exampleModalCenter-<%= food.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle-<%= food.id %>" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <p5 class="modal-title" id="exampleModalCenterTitle-<%= food.id %>"><%= food.name %></p5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
-                              <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                          <div class="modal-body">
-                            <div class="modalpicture">
-                              <p><%= image_tag "#{food.picture.url}",:width => '50%', :height => '50%'  %></p>
-                            </div>
+                <div class="modal fade" id="exampleModalCenter-<%= food.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle-<%= food.id %>" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <p5 class="modal-title" id="exampleModalCenterTitle-<%= food.id %>"><%= food.name %></p5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                      </div>
+                        <div class="modal-body">
+                          <div class="modalpicture">
+                            <p><%= image_tag "#{food.picture.url}",:width => '50%', :height => '50%'  %></p>
                           </div>
-                        <div class="modal-footer">
-                          <h5><%= food.price %>円</h5>
                         </div>
+                      <div class="modal-footer">
+                        <h5><%= food.price %>円</h5>
                       </div>
                     </div>
                   </div>
-               </td>
+                </div>
                 <% if current_user == nil %>
                 <% elsif %>
-              <td><%= link_to '焼き鳥を編集する', edit_food_path(food.id), data: { confirm: '本当に編集していいですか？' } %></td>
-              <td><%= link_to '焼き鳥を削除する', food_path(food.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>
+              <td>
+                <button type="button" class="btn btn-warning rounded-pill">
+                <%= link_to '編集', edit_food_path(food.id), data: { confirm: '本当に編集していいですか？' } %></button></td>
+              <td>
+                <button type="button" class="btn btn-secondary rounded-pill">
+                <%= link_to '削除', food_path(food.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></button></td>
                 <% end %>
             </tr>
              <% end %>
@@ -118,8 +121,12 @@
                 </div>
                 <% if current_user == nil %>
                 <% elsif %>
-              <td><%= link_to '焼き鳥を編集する', edit_food_path(food.id), data: { confirm: '本当に編集していいですか？' } %></td>
-              <td><%= link_to '焼き鳥を削除する', food_path(food.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>
+              <td>
+                <button type="button" class="btn btn-warning rounded-pill">
+                <%= link_to '編集', edit_food_path(food.id), data: { confirm: '本当に編集していいですか？' } %></button></td>
+              <td>
+                <button type="button" class="btn btn-secondary rounded-pill">
+                <%= link_to '削除', food_path(food.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></button></td>
                 <% end %>
             </tr>
              <% end %>
@@ -172,8 +179,12 @@
                   </div>
                 <% if current_user == nil %>
                 <% elsif  %>
-              <td><%= link_to '焼き鳥を編集する', edit_food_path(food.id), data: { confirm: '本当に編集していいですか？' } %></td>
-              <td><%= link_to '焼き鳥を削除する', food_path(food.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>
+              <td>
+                <button type="button" class="btn btn-warning rounded-pill">
+                <%= link_to '編集', edit_food_path(food.id), data: { confirm: '本当に編集していいですか？' } %></button></td>
+              <td>
+                <button type="button" class="btn btn-secondary rounded-pill">
+                <%= link_to '削除', food_path(food.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></button></td>
                 <% end %>
             </tr>
              <% end %>
@@ -226,8 +237,12 @@
                 </div>
                 <% if current_user == nil %>
                 <% elsif %>
-              <td><%= link_to '焼き鳥を編集する', edit_food_path(food.id), data: { confirm: '本当に編集していいですか？' } %></td>
-              <td><%= link_to '焼き鳥を削除する', food_path(food.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>
+              <td>
+                <button type="button" class="btn btn-warning rounded-pill">
+                <%= link_to '編集 ', edit_food_path(food.id), data: { confirm: '本当に編集していいですか？' } %></button></td>
+              <td>
+                <button type="button" class="btn btn-secondary rounded-pill">
+                <%= link_to '削除', food_path(food.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></button></td>
                 <% end %>
             </tr>
              <% end %>

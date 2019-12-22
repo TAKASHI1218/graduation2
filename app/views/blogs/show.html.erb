@@ -8,18 +8,59 @@
 
 
   <div class="blog-text">
+    <table>
     <p><strong>タイトル</strong>：<%= @blog.title %></p>
     <p><strong>内容</strong>：<%= @blog.content %></p>
 
     <p><strong>写真</strong>：
       <% if  @blog.picture.url %>
-        <%= image_tag @blog.picture.url ,:width => '400', :height => '400'  %>
-      <% else %>
-        <%= '写真はありません。' %>
-      <% end %>
-    </p>
+      <button type="button" class="btn btn-link" data-toggle="modal" data-target="#exampleModalCenter-<%= @blog.id %>">
+      <%=  '🐓' %>
+    <% else %>
+      <%= '写真はありません'%>
+    <% end %>
+      </button>
+    <div class="modal fade" id="exampleModalCenter-<%= @blog.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle-<%= @blog.id %>" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
+                <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+            <div class="modal-body">
+              <div class="modalpicture">
+                <p>
+                  <% if  @blog.picture.url %>
+                  <%= image_tag @blog.picture.url ,:width => '400', :height => '400'  %></p>
+                  <% elsif @blog.picture.url == nil %>
+                  <% end %>
+              </div>
+            </div>
+          <div class="modal-footer">
+          </div>
+        </div>
+      </div>
+    </div>
 
-    <table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <table class="table table-hover">
       <tr>
         <th>完了予定日</th>
         <th>優先度</th>

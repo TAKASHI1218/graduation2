@@ -35,14 +35,6 @@
         <br>
         </div>
       </div>
-      </header>
-
-
-
-
-
-
-
   </header>
 
   <body>
@@ -97,8 +89,9 @@
       <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
     <% else %>
      <%= link_to "ログイン", new_user_session_path %>
-     <%= link_to "新規登録", new_user_registration_path %>
     <% end %>
+    <%# link_to "新規登録", new_user_registration_path  %>
+
 
 
 
@@ -107,8 +100,12 @@
     <% elsif %>
       <%= link_to "業務連絡一覧画面", blogs_path %>
       <%= link_to '従業員一覧', users_path %>
+    <% end %>
+    <% if current_user == nil %>
+    <% elsif current_user.admin %>
       <%= link_to 'Adminぺージ', rails_admin_path %>
     <% end %>
+
 
 
 
