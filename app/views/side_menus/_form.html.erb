@@ -27,11 +27,11 @@
   </div>
   <div class="side_menu_price">
     <%= form.label :price %>
-    <%= form.number_field :price %>
+    <%= form.number_field(:price, in: 1..99999, step: 1.0) %>
   </div>
   <div class="side_menu_kind">
     <%= form.label :kind %>
-    <%= form.select :kind, SideMenu.kinds.keys.to_a, {} %> 
+    <%= form.select :kind, SideMenu.kinds.keys.to_a, {} %>
   </div>
 
 

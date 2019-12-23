@@ -27,7 +27,7 @@
   </div>
   <div class="food_price">
     <%= form.label :price %>
-    <%= form.number_field :price %>
+    <%= form.number_field(:price, in: 1..99999, step: 1.0) %>
   </div>
 
 

@@ -11,11 +11,10 @@
 
        <button type="button" class="btn btn-secondary rounded-pill">
 
-       <%= link_to 'コメントを削除する', "/blogs/#{comment.blog_id}/comments/#{comment.id}", method: :delete, remote: true %></button>
+       <%= link_to 'コメントを削除する', "/blogs/#{comment.blog_id}/comments/#{comment.id}", method: :delete, remote: true, data: {"turbolinks" => false}
+ %></button>
     <% end %>
    <% end %>
 
 
 </ul>
-<button type="button" class="btn btn-secondary rounded-0">
-<%= paginate @comments%></button>

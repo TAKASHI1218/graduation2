@@ -172,6 +172,9 @@ text-decoration:underline;
   height:100%;
   scroll-snap-type: y;
   height: 150vh;
+  font-size: 20 px;
+  font-weight: bold;
+
 }
 
  .foodbody{
@@ -349,7 +352,7 @@ text-decoration:underline;
   color: black;
   height:100%;
   scroll-snap-type: y;
-  height: 150vh;
+  height: auto;
 }
 
 .blognewbody{
@@ -366,7 +369,11 @@ text-decoration:underline;
   padding-top: 20px;
 }
 
-.alert{ 
+.alert{
  color: black;
  font-size: 30px;
+}
+
+.passwordbody{
+  color:black;
 }
