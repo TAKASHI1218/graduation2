@@ -149,8 +149,11 @@ text-decoration:underline;
 
    color: black;
    font-family: serif;
-   margin-bottom: auto;
    text-align: center;
+
+
+
+
  }
 
  body {
@@ -171,7 +174,7 @@ text-decoration:underline;
   background-size: cover;
   height:100%;
   scroll-snap-type: y;
-  height: 150vh;
+  height: 100vh;
   font-size: 20 px;
   font-weight: bold;
 
@@ -184,7 +187,7 @@ text-decoration:underline;
    background-size: cover;
    height:100%;
    scroll-snap-type: y;
-   height: 400vh;
+   // height: 400vh;
  }
 
 .side_menubody{
@@ -193,7 +196,7 @@ text-decoration:underline;
   background-attachment: fixed;
   background-size: 100% 100%;
   scroll-snap-type: y;
-  min-height: 400vh;
+  // min-height: 400vh;
 }
 
 .side_menukind0{
@@ -215,7 +218,7 @@ text-decoration:underline;
   background-size: cover;
   height:100%;
   scroll-snap-type: y;
-  height: 400vh;
+  // height: 400vh;
 }
 
 .drinkbody{
@@ -225,7 +228,7 @@ text-decoration:underline;
   background-size: cover;
   height:100%;
   scroll-snap-type: y;
-  height: 400vh;
+  // height: 400vh;
 }
 
 
@@ -279,6 +282,7 @@ text-decoration:underline;
 .blog{
   color: black;
   background-color: white;
+  min-height: 100vh;
 }
 
 .blogtitle{
@@ -332,20 +336,26 @@ text-decoration:underline;
 
 .usersbody{
   color: black;
+  height: auto;
+  min-height: 100vh;
 }
 
 .signupbody{
   color: black;
+  color: black;
+  height:100vh;
 }
 .loginbody{
   color: black;
+  height:100vh;
 }
 
 .blogeditbody{
   color: black;
   height:100%;
+  height: auto;
   scroll-snap-type: y;
-  height: 300vh;
+  // height: 300vh;
 }
 
 .blogshowbody{
@@ -358,7 +368,7 @@ text-decoration:underline;
 .blognewbody{
   color: black;
   scroll-snap-type: y;
-  height: 150vh;
+  // height: 150vh;
 }
 .menuediter{
   color: black;
@@ -376,4 +386,16 @@ text-decoration:underline;
 
 .passwordbody{
   color:black;
+  color: black;
+  height:100vh;
+}
+
+
+.jumbotron {
+  text-align: center;
+}
+
+.comment_board{
+  font-size: 30px;
+
 }

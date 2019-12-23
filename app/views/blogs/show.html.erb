@@ -56,9 +56,12 @@
       </tr>
     </table>
   </div>
+  <div class="jumbotron jumbotron-fluid">
+  <p1 class="comment_board">コメント一覧</p1>
+  <br>
+  <br>
 
-  <p>コメント一覧</p>
-
+   
   <div id="comments_area">
     <%= render partial: 'comments/index', locals: { comments: @comments, blog: @blog } %>
   </div>
@@ -66,6 +69,8 @@
   <% elsif current_user %>
   <%= render partial: 'comments/form', locals: { comment: @comment, blog: @blog } %>
   <% end %>
+
+  </div>
 
 
 </div>
