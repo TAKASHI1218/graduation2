@@ -38,7 +38,7 @@ class BlogsController < ApplicationController
   end
 
   def show
-    @comments = @blog.comments.page(params[:page]).per(4)
+    @comments = @blog.comments
 
     @comment = @blog.comments.build
   end

@@ -5,17 +5,16 @@
       <button type="button" class="btn btn-primary"><%= comment.user.name %></button>
     <% end %>
     <% if current_user == nil %>
-    <% elsif current_user.id == comment.user_id || current_user.admin %>
+    <% elsif current_user.id == comment.user_id || current_user.id == current_user.admin %>
 
 
 
        <button type="button" class="btn btn-secondary rounded-pill">
 
-       <%= link_to 'コメントを削除する', "/blogs/#{comment.blog_id}/comments/#{comment.id}", method: :delete, remote: true %></button>
+       <%= link_to 'コメントを削除する', "/blogs/#{comment.blog_id}/comments/#{comment.id}", method: :delete, remote: true, data: {"turbolinks" => false} %></button>
     <% end %>
+
    <% end %>
 
 
 </ul>
-<button type="button" class="btn btn-secondary rounded-0">
-<%= paginate @comments%></button>
