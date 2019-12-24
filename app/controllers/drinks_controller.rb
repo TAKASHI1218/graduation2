@@ -59,8 +59,6 @@ class DrinksController < ApplicationController
   def refuse_to_go_to
     if current_user == nil
       redirect_to tops_path, notice: '権限がありません。'
-    elsif current_user.admin == false
-      redirect_to tops_path, notice: '権限がありません。'
     end
   end
 end

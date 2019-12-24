@@ -20,7 +20,7 @@
     <%= form.label :picture%>
     <%= form.file_field :picture %>
     <% if @sake.picture.url %>
-      <%= image_tag @sake.picture.url %>
+      <%= image_tag @sake.picture.url, :width => '25%', :height => '25%'  %>
     <% end %>
     <br>
 
