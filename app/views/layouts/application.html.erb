@@ -15,28 +15,39 @@
   </head>
 
   <header class="sticky-top">
-      <div class="toriyuu">
-
-        <h1>鳥勇</h1>
-
-      <div class="top-sub">
-        <button type="button" class="btn btn-light rounded-pill">
-            <%= link_to "トップページ", tops_path %></button>
-       <button type="button" class="btn btn-light rounded-pill">
-            <%= link_to "アクセス", maps_path %></button>
+    <div class="header-logo-menu">
+      <div id="nav-drawer">
+          <input id="nav-input" type="checkbox" class="nav-unshown">
+          <label id="nav-open" for="nav-input"><span></span></label>
+          <label class="nav-unshown" id="nav-close" for="nav-input"></label>
+          <div id="nav-content">
+            <!-- <button type="button" class="btn btn-light rounded-pill"> -->
+            <%= link_to "トップページ", tops_path %><br>
+       <!-- <button type="button" class="btn btn-light rounded-pill"> -->
+            <%= link_to "アクセス", maps_path %><br>
         <br>
-          <button type="button" class="btn btn-warning rounded-pill">
-            <%= link_to "焼き鳥", foods_path %></button>
-          <button type="button" class="btn btn-warning rounded-pill">
-            <%= link_to "一品料理", side_menus_path %></button>
-          <button type="button" class="btn btn-warning rounded-pill">
-            <%= link_to "お飲み物", drinks_path %></button>
-          <button type="button" class="btn btn-warning rounded-pill">
-            <%= link_to "日本酒", sakes_path %></button>
-        <br>
-        </div>
+          <!-- <button type="button" class="btn btn-warning rounded-pill"> -->
+            <%= link_to "焼き鳥", foods_path %><br>
+          <!-- <button type="button" class="btn btn-warning rounded-pill"> -->
+            <%= link_to "一品料理", side_menus_path %><br>
+          <!-- <button type="button" class="btn btn-warning rounded-pill"> -->
+            <%= link_to "お飲み物", drinks_path %><br>
+          <!-- <button type="button" class="btn btn-warning rounded-pill"> -->
+            <%= link_to "日本酒", sakes_path %><br>
+
+
+
+          </div>
+
+
+
+
+
+
+
       </div>
-  </header>
+      <div class="logo-erea"><p1>鳥勇</p1></div>
+      </div>  </header>
 
   <body>
 
